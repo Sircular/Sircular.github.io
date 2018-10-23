@@ -27,6 +27,7 @@ menu:
       weight: 3
 
 params:
+  favicon_url: "/favicon.ico"
   email: "walt@waltermays.com"
   github_username: "Sircular"
 
