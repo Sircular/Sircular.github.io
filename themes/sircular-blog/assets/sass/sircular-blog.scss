@@ -1,0 +1,31 @@
+// config variables {{{
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Inconsolata|Playfair+Display');
+$body-font:   Crimson Text, serif;
+$header-font: Playfair Display, serif;
+
+$text-color:       #111;
+$light-text:       #666;
+$light-background: whitesmoke;
+$font-size:        16pt;
+$mobile-font-size: 14pt;
+
+$accent-color: #1252A1;
+// }}}
+
+// media query mixins {{{
+$content-width: 900px !default;
+$on-palm:       768px !default;
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+// }}}
+
+
+
+@import "body";
+@import "header-footer";
+@import "post";
+@import "code";

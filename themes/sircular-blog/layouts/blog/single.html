@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1 class="post-title">{{ .Title }}</h1>
+{{ partial "blog/post-desc" . }}
+{{ .Content }}
+{{ end }}
+{{ define "scripts" }}
+<script type="text/javascript"
+        src="{{ (resources.Get "scroll-header.js").RelPermalink }}"></script>
+{{ end }}

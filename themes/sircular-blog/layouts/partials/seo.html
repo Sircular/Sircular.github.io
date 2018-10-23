@@ -1,0 +1,24 @@
+{{ "<!-- Begin SEO -->" | safeHTML }}
+<meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }} {{ end }}"/>
+{{ with .Summary }}<meta name="description" content="{{ . }}"/>{{ end }}
+<link rel="canonical" href="{{ .Permalink }}"/>
+<meta property="og:url" content="{{ .Permalink }}"/>
+<meta property="og:site_name" content="{{ .Site.Title }}"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="{{ .Date }}"/>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
+    },
+    "@type": "WebPage",
+    "url": "{{ .Permalink }}",
+    "headline": "{{ .Title }}",
+    "dateModified": "{{ .Date }}",
+    "datePublished": "{{ .Date }}"{{ with .Summary }},
+    "description": "{{ . }}"{{ end }}
+  }
+</script>
+{{ "<!-- End SEO -->" | safeHTML }}

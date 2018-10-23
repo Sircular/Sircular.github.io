@@ -1,0 +1,13 @@
+<header>
+  <div class="site-title"><a href="/">{{ .Site.Title }}</a></div>
+  <nav class="nav-links">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main.ByWeight }}
+    {{ if eq $currentPage.URL .URL }}
+    <span class="nav-link inactive-link">{{ .Name }}</span>
+    {{ else }}
+    <a href="{{ .URL }}" class="nav-link">{{ .Pre }}{{ .Name }}</a>
+    {{ end }}
+    {{ end }}
+  </nav>
+</header>
