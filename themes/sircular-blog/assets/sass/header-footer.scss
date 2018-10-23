@@ -1,0 +1,66 @@
+header {
+    padding:          0.7em;
+    padding-left:     30px;
+    padding-right:    30px;
+    color:            $light-text;
+    background-color: $light-background;
+
+    .site-title {
+        order:         0;
+        margin-bottom: 0.6em;
+        text-align:    center;
+
+        font-size:   2em;
+        font-family: $header-font;
+
+        a {
+            color: $light-text;
+        }
+    }
+
+    .nav-links {
+        order:      1;
+        text-align: center;
+
+        .nav-link {
+            font-family:   $header-font;
+            font-size:     1.08em;
+            padding-left:  0.5em;
+            padding-right: 0.5em;
+            @include media-query($on-palm) {
+                display:    block;
+                text-align: left;
+                padding:    0;
+            }
+        }
+    }
+}
+
+
+footer {
+    margin-top: 1em;
+    text-align: center;
+    font-size:  0.9em;
+
+    .footer-links {
+        margin-bottom: 0.5em;
+    }
+
+    .footer-item {
+        padding-left:  1em;
+        padding-right: 1em;
+
+        &:not(:last-child) {
+            border-right: 1px solid $light-text;
+        }
+
+        @include media-query($on-palm) {
+            display:      block;
+            text-align:   center;
+            &:not(:last-child) {
+                border: none;
+            }
+        }
+    }
+
+}

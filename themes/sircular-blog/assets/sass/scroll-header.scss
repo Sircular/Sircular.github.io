@@ -1,0 +1,10 @@
+#scrolling-header {
+    position:    fixed;
+    top:         1em;
+
+    font-size:   1.1em;
+    font-family: $header-font;
+    color:       $light-text;
+    text-align:  right;
+    font-style:  italic;
+}
