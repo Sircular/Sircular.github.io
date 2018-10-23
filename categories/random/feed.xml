@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random on Walter Mays</title>
+    <link>https://waltermays.com/categories/random/</link>
+    <description>Recent content in Random on Walter Mays</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://waltermays.com/categories/random/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Physics of Impossibly Loud Music</title>
+      <link>https://waltermays.com/blog/2018/05/the-physics-of-impossibly-loud-music/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/05/the-physics-of-impossibly-loud-music/</guid>
+      <description>I was re-reading Douglas Adams&amp;rsquo;s Restaraunt at the End of the Universe, and I came across one of Adams&amp;rsquo;s many flights of fancy:
+ &amp;ldquo;Disaster Area was a plutonium rock band from the Gagrakacka Mind Zones and was generally regarded as not only the loudest rock band in the Galaxy, but also as being the loudest noise of any kind at all. Regular concert goers judged that the best sound balance was usually to be heard from within large concrete bunkers some thirty-seven miles away from the stage, whilst the musicians themselves played their instruments by remote control from within a heavily insulated spaceship which stayed in orbit around the planet - or more frequently around a completely different planet.</description>
+    </item>
+    
+  </channel>
+</rss>

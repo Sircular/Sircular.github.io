@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Walter Mays</title>
+    <link>https://waltermays.com/blog/</link>
+    <description>Recent content in Blog on Walter Mays</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://waltermays.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Internship Post-Mortem</title>
+      <link>https://waltermays.com/blog/2018/08/internship-post-mortem/</link>
+      <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/08/internship-post-mortem/</guid>
+      <description>On Friday I finished my internship at CBOE. Quite honestly I&amp;rsquo;m going to miss working there; I learned a lot, both from my coworkers and from the codebase. In this post I&amp;rsquo;m going to go over what I liked (and disliked) about my summer internship.
+The Known Unknowns Going into this internship, I knew that I would have to learn how to properly develop software with others. Most of my prior experience involved me writing a program to solve a problem or complete an assignment.</description>
+    </item>
+    
+    <item>
+      <title>I Distrohopped Again</title>
+      <link>https://waltermays.com/blog/2018/06/i-distrohopped-again/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/06/i-distrohopped-again/</guid>
+      <description>If you know any Linux people, you&amp;rsquo;ll know that many of them seem to have this obsession with changing the distribution of their operating system every few months. I am one of these people. I guess that after so many months of use, Ubuntu just grew too ancient for me. Or something. So now I&amp;rsquo;m running Fedora 28. I have all kinds of rationalizations for choosing it: it has a better release cycle that lets me use new software sooner, it&amp;rsquo;s more FOSS than Ubuntu, yadda yadda yadda.</description>
+    </item>
+    
+    <item>
+      <title>My First &#39;Real&#39; Programming Job</title>
+      <link>https://waltermays.com/blog/2018/05/my-first-real-programming-job/</link>
+      <pubDate>Tue, 29 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/05/my-first-real-programming-job/</guid>
+      <description>Last week, I started my first internship at Cboe Global Markets. Hooray! I&amp;rsquo;m getting paid to do what I do for fun anyway!
+I was expecting it to be difficult, and it is, but it&amp;rsquo;s certainly not as difficult as I was led to believe. Obviously I can&amp;rsquo;t talk about anything that I&amp;rsquo;m working on in detail (NDAs and all that), but I can say that I&amp;rsquo;m being much more productive than I expected.</description>
+    </item>
+    
+    <item>
+      <title>The Physics of Impossibly Loud Music</title>
+      <link>https://waltermays.com/blog/2018/05/the-physics-of-impossibly-loud-music/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/05/the-physics-of-impossibly-loud-music/</guid>
+      <description>I was re-reading Douglas Adams&amp;rsquo;s Restaraunt at the End of the Universe, and I came across one of Adams&amp;rsquo;s many flights of fancy:
+ &amp;ldquo;Disaster Area was a plutonium rock band from the Gagrakacka Mind Zones and was generally regarded as not only the loudest rock band in the Galaxy, but also as being the loudest noise of any kind at all. Regular concert goers judged that the best sound balance was usually to be heard from within large concrete bunkers some thirty-seven miles away from the stage, whilst the musicians themselves played their instruments by remote control from within a heavily insulated spaceship which stayed in orbit around the planet - or more frequently around a completely different planet.</description>
+    </item>
+    
+    <item>
+      <title>My First Successful Game Jam</title>
+      <link>https://waltermays.com/blog/2018/04/my-first-successful-game-jam/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/04/my-first-successful-game-jam/</guid>
+      <description>I competed in Ludum Dare 41 last weekend, when I made a small video game in 48 hours. Was that ever a learning experience.
+First off, you can play my entry, Puzzle Prizon, here! LD 41 is still in its voting rounds, so if you also participated in Ludum Dare, I&amp;rsquo;d like to have your feedback.
+Preparation I&amp;rsquo;ve written about my other failed attempts at participating in game jams. Every time that I&amp;rsquo;ve gone to join one, life has gotten in the way, whether that be schoolwork or laziness.</description>
+    </item>
+    
+    <item>
+      <title>Why I&#39;m Moving Away From LaTeX</title>
+      <link>https://waltermays.com/blog/2018/03/why-im-moving-away-from-latex/</link>
+      <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/03/why-im-moving-away-from-latex/</guid>
+      <description>This may come as a shock to you: I, Walter Mays, the ardent LaTeX fanatic, am not going to use LaTeX for every assignment anymore. What is this world coming to?!
+It&amp;rsquo;s not that I&amp;rsquo;m going to stop using LaTeX completely. I think that is a fantastic system for typesetting structured documents, and I&amp;rsquo;ve been having to put together several of those this semester. I wouldn&amp;rsquo;t trade the power of LaTex for the world.</description>
+    </item>
+    
+    <item>
+      <title>Learn You Some Linux for Great Good Part 3: Command Line Syntax</title>
+      <link>https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/</link>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/</guid>
+      <description>This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  To fully understand the command line, you need to have a good grasp of the syntax of the command line. If you already understand how the shell breaks up arguments, and the concepts of flags, pipes, and redirections, then skip ahead to the next part.</description>
+    </item>
+    
+    <item>
+      <title>Learn You Some Linux For Great Good Part 2: Getting Comfortable</title>
+      <link>https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-2-getting-comfortable/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-2-getting-comfortable/</guid>
+      <description>This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  Once you&amp;rsquo;ve finished installation, your computer should ask you to restart. If it doesn&amp;rsquo;t, do it anyway. I&amp;rsquo;m sure you&amp;rsquo;re just dying to test out your new installation of Linux.
+Baby Steps When you reboot, you should see a menu pop up.</description>
+    </item>
+    
+    <item>
+      <title>My Stupid Accident</title>
+      <link>https://waltermays.com/blog/2018/03/my-stupid-accident/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/03/my-stupid-accident/</guid>
+      <description>For those of you who see me every day (or, in the case of my parents, had to deal with this mess), you already know the story. For everyone else: I got in a car accident on February 13th. It was the stupidest accident I&amp;rsquo;ve ever heard of.
+I wasn&amp;rsquo;t hurt, and the other drivers weren&amp;rsquo;t hurt. It was about as fortunate as an accident like this can be.
+First off, some backstory: I noticed a few days earlier that my wheel was wobbling somewhat when I drove.</description>
+    </item>
+    
+    <item>
+      <title>The Aftermath</title>
+      <link>https://waltermays.com/blog/2018/02/the-aftermath/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/02/the-aftermath/</guid>
+      <description>Good news everyone! I finished my first session as a GM, and I didn&amp;rsquo;t die! I&amp;rsquo;ve found a few strengths and many weaknesses, but I at least have some idea what&amp;rsquo;s going on.
+The Preparation I have a couple of close friends who have been GMs before. Neither of them has tons and tons of experience, but they have a good idea of what they&amp;rsquo;re doing. They recommended that I watch all of Matt Colville&amp;rsquo;s Running the Game series.</description>
+    </item>
+    
+    <item>
+      <title>I&#39;m Absolutely Terrified</title>
+      <link>https://waltermays.com/blog/2018/02/im-absolutely-terrified/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/02/im-absolutely-terrified/</guid>
+      <description>I&amp;rsquo;m going to start being a Game Master for a D&amp;amp;D game on Friday. I have no idea what I&amp;rsquo;m doing.
+That&amp;rsquo;s not exactly true. I&amp;rsquo;ve got a world that a friend built, I&amp;rsquo;ve got a few ideas going in, and I&amp;rsquo;ve got some generators I can use. But going into something like this with exactly zero experience is always going to be nerve-wracking.
+I&amp;rsquo;ve never run an encounter. I&amp;rsquo;ve never run a battle.</description>
+    </item>
+    
+    <item>
+      <title>Woah. I Understand Now</title>
+      <link>https://waltermays.com/blog/2018/02/woah.-i-understand-now/</link>
+      <pubDate>Sat, 17 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/02/woah.-i-understand-now/</guid>
+      <description>Those of you who have been following my blog know that I posted something called &amp;ldquo;The End Is Nigh,&amp;rdquo; in which I disparaged those who felt overwhelmed by school. Oh how the turntables&amp;hellip; All it took was a good dose of too many credit hours.
+I was doing a healthy 15 credit hours last semester; this semester it&amp;rsquo;s up to 19. That isn&amp;rsquo;t to say I&amp;rsquo;m not enjoying it. I&amp;rsquo;m not, but that&amp;rsquo;s not why.</description>
+    </item>
+    
+    <item>
+      <title>New Domain!</title>
+      <link>https://waltermays.com/blog/2018/02/new-domain/</link>
+      <pubDate>Mon, 12 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/02/new-domain/</guid>
+      <description>It&amp;rsquo;s official: I&amp;rsquo;ve shelled out for a domain name, waltermays.com, and pointed it to this very blog. Amazing!
+I waited a long time to do this, since a) I didn&amp;rsquo;t have a reason and b) that&amp;rsquo;s money I didn&amp;rsquo;t necessarily need to spend. But I think this is well worth it. I actually have something I can put on my resume, plus I get to say I have my own website.</description>
+    </item>
+    
+    <item>
+      <title>My Third Failed Game Jam</title>
+      <link>https://waltermays.com/blog/2018/01/my-third-failed-game-jam/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/01/my-third-failed-game-jam/</guid>
+      <description>I&amp;rsquo;ve been playing with game development for several years now. I&amp;rsquo;ve researched engines and frameworks, looked into drawing, level design, and music programs, and thrown around ideas. I even started programming a few of them. Guess how many I&amp;rsquo;ve finished.
+I&amp;rsquo;m not the only one with this problem. Most &amp;ldquo;game developers&amp;rdquo; never really get much farther than a working prototype of a few of their core mechanics. While that can be fun &amp;mdash; if you call fiddling with weights until the movement doesn&amp;rsquo;t seem to floaty or heavy &amp;ldquo;fun&amp;rdquo; &amp;mdash; it&amp;rsquo;s not as fulfilling as (I imagine) completing a game would be.</description>
+    </item>
+    
+    <item>
+      <title>Learn You Some Linux For Great Good Part 1: Installation</title>
+      <link>https://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/</guid>
+      <description>This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  So, you&amp;rsquo;ve decided to forge ahead. In this part we will discuss some important jargon to know, look at some distributions (and discuss how to tell them apart), create installation media, and install Linux.</description>
+    </item>
+    
+    <item>
+      <title>Adventures in Haskell</title>
+      <link>https://waltermays.com/blog/2017/12/adventures-in-haskell/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2017/12/adventures-in-haskell/</guid>
+      <description>Something has possessed me to learn Haskell. I&amp;rsquo;m not sure what exactly, but it must be an evil, illogical demon, since none of my courses nor my possible internships use Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170 (which I most certainly do not have), so it&amp;rsquo;s probably an impossible task. Nonetheless, I shall soldier on.
+My first thought was to attempt to port a working program to Haskell.</description>
+    </item>
+    
+    <item>
+      <title>Learn You Some Linux for Great Good Part 0: A Word of Caution</title>
+      <link>https://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-0-a-word-of-caution/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-0-a-word-of-caution/</guid>
+      <description>This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  Here be dragons. The Linux world is fraught with pitfalls, gotchas, and undocumented quagmires through which even the most seasoned Linux guru struggle to wade. Using Linux can be productive, but it can also lead to many late nights, many lost files, and many outbursts of frustration.</description>
+    </item>
+    
+    <item>
+      <title>The End Is Nigh!</title>
+      <link>https://waltermays.com/blog/2017/12/the-end-is-nigh/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2017/12/the-end-is-nigh/</guid>
+      <description>Dead week has begun. When not in their rooms studying, sleepless students with glazed eyes and racing thoughts slowly pace the hallways, eager for a break from relentless business, mathematics, and computer science assignments. And throughout all of Kaufmann, young, clueless freshmen are crying out, &amp;ldquo;What&amp;rsquo;s all the fuss about?&amp;rdquo;
+I&amp;rsquo;m not sure if I&amp;rsquo;m doing something wrong, but the end of my first semester seems eerily easy. To be sure, I have a few big tests coming up, some of which count for a large percentage of my grade.</description>
+    </item>
+    
+    <item>
+      <title>My Crazy Notetaking Setup</title>
+      <link>https://waltermays.com/blog/2017/12/my-crazy-notetaking-setup/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://waltermays.com/blog/2017/12/my-crazy-notetaking-setup/</guid>
+      <description>Without going into too much detail, let&amp;rsquo;s just say that I enjoy messing with my workflow far too much. I&amp;rsquo;m constantly trying to get a more efficient setup, a faster, newer, better, shinier plugin, and a more robust tool to use. I have an addiction for configuration. However, for the past few months, I&amp;rsquo;ve found a workflow that works pretty consistently for me.
+Note-Taking I take all of my notes in Vim.</description>
+    </item>
+    
+  </channel>
+</rss>

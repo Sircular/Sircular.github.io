@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Begin SEO -->
+  <meta property="og:title" content=
+  "Learn You Some Linux for Great Good Part 3: Command Line Syntax">
+  <meta name="description" content=
+  "This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series. Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax To fully understand the command line, you need to have a good grasp of the syntax of the command line. If you already understand how the shell breaks up arguments, and the concepts of flags, pipes, and redirections, then skip ahead to the next part.">
+  <link rel="canonical" href=
+  "https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/">
+  <meta property="og:url" content=
+  "https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/">
+  <meta property="og:site_name" content="Walter Mays">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-03-05 00:00:00 &#43;0000 UTC">
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/"
+    },
+    "@type": "WebPage",
+    "url": "https://waltermays.com/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/",
+    "headline": "Learn You Some Linux for Great Good Part 3: Command Line Syntax",
+    "dateModified": "2018-03-05 00:00:00 &#43;0000 UTC",
+    "datePublished": "2018-03-05 00:00:00 &#43;0000 UTC",
+    "description": "This is one of several posts in my "Learn You Some Linux For Great Good" series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  To fully understand the command line, you need to have a good grasp of the syntax of the command line. If you already understand how the shell breaks up arguments, and the concepts of flags, pipes, and redirections, then skip ahead to the next part."
+  }
+  </script><!-- End SEO -->
+  <title>Learn You Some Linux for Great Good Part 3: Command Line Syntax | Walter Mays</title>
+  <script type="text/javascript" src=
+  "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="site-title">
+      <a href="/">Walter Mays</a>
+    </div>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a> <a href="/learn-you-some-linux/" class="nav-link">Learn
+      You Some Linux</a> <a href="/blog/" class="nav-link">Blog</a>
+    </nav>
+  </header>
+  <div id="content">
+    <div class="container">
+      <h1 class="post-title">Learn You Some Linux for Great Good Part 3: Command Line Syntax</h1>
+      <div class="post-info">
+        March 5, 2018 &bull; <a href="/categories/linux">Linux</a>
+      </div><em>This is one of several posts in my "Learn You Some Linux For Great Good"
+      series.</em>
+      <ul>
+        <li>
+          <a href=
+          "/blog/2017/12/learn-you-some-linux-for-great-good-part-0-a-word-of-caution/">Part 0: A
+          Word of Caution</a>
+        </li>
+        <li>
+          <a href="/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/">Part 1:
+          Installation</a>
+        </li>
+        <li>
+          <a href=
+          "/blog/2018/03/learn-you-some-linux-for-great-good-part-2-getting-comfortable/">Part 2:
+          Getting Comfortable</a>
+        </li>
+        <li>
+          <a href=
+          "/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/">Part 3:
+          Command Line Syntax</a>
+        </li>
+      </ul>
+      <p>To fully understand the command line, you need to have a good grasp of the syntax of the
+      command line. If you already understand how the shell breaks up arguments, and the concepts
+      of flags, pipes, and redirections, then skip ahead to the next part. Otherwise, read on!</p>
+      <h3 id="a-note-before-we-begin">A Note Before We Begin</h3>
+      <p>The design of the command line might seem overly modular at first. You&rsquo;ll see what I
+      mean when you read on. However, there&rsquo;s a reason that the system is broken down into
+      such small parts: <em>The Unix Philosophy</em>, which states that a program should &ldquo;do
+      one thing and do it well.&rdquo; I&rsquo;ll discuss more about this after the syntax
+      explanation.</p>
+      <h2 id="command-line-structure">Command Line Structure</h2>
+      <p>Most terminal commands (with the exceptions of &ldquo;shell built-ins,&rdquo; which
+      we&rsquo;ll talk about in the next part) are individual programs that are separate from the
+      shell. Any program, even graphical programs, can be run from the shell, and most (if not all)
+      programs written for Linux accept some &ldquo;command line arguments.&rdquo; These are pieces
+      of additional data the user provides to the program when running it. Here&rsquo;s a basic
+      example:</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ <span style=
+        "color:#204a87">echo</span> Hello</code></pre>
+      </div>
+      <p>The <code>echo</code> command outputs its arguments to the terminal. It&rsquo;s not super
+      useful as-is, but can be very useful in scripts.</p>
+      <p>Arguments can also be filenames.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ cat file.txt</code></pre>
+      </div>
+      <p><code>cat</code> prints out the contents of whatever file you provide; in this case,
+      that&rsquo;s &ldquo;file.txt.&rdquo;</p>
+      <p>File paths can be specified using <em>relative paths</em>, which are relative to the
+      <em>current working directory</em>, and <em>absolute paths</em>, which are not. The current
+      working directory is the directory the shell is currently in. You&rsquo;ll see the current
+      working directory before the prompt, e.g. <code>/usr/share/bin $</code>. If
+      <code>file.txt</code> is in <code>/home/user/documents</code>, then command above can be
+      written as <code>cat /home/user/documents/file.txt</code>.</p>
+      <p>Programs can also accept multiple command-line arguments: for example, the
+      <code>diff</code> program compares two or more files. Arguments are separated by spaces.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ diff file1.txt file2.txt file3.txt</code></pre>
+      </div>
+      <p>Since spaces are used as separators, directories and files with spaces in their names can
+      be problematic. UNIX convention is to name directories without spaces, generally using only
+      alphanumeric characters (a-z, 0-9) and the underscore (_). However, if you ever need to
+      interact with document structures with spaces (or include other non-file arguments with
+      spaces), surround that argument with double quotes:</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ cat <span style=
+        "color:#4e9a06">&#34;/home/user/My Documents/file 1.txt&#34;</span></code></pre>
+      </div>
+      <p>In our <code>echo</code> example above, we only passed in one command line argument, but
+      <code>echo</code> actually prints out all its arguments. However, spaces aren&rsquo;t
+      maintained between arguments, so echo only outputs one space between words unless the
+      arguments are surrounded by quotes.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ <span style=
+        "color:#204a87">echo</span>  Hello      world.  <span style=
+        "color:#8f5902;font-style:italic"># outputs &#34;Hello world.&#34;
+</span>$ <span style="color:#204a87">echo</span> <span style=
+"color:#4e9a06">&#34;Hello      world.&#34;</span> # outputs <span style=
+"color:#4e9a06">&#34;Hello      world.&#34;</span> </code></pre>
+      </div>
+      <h2 id="separating-commands">Separating Commands</h2>
+      <p>Sometimes a command will take a long time to run, and you don&rsquo;t want to have to wait
+      until that command finishes to enter the next one. Bash and its siblings supply two
+      operations to do this: <code>;</code> and <code>&amp;&amp;</code>. <code>;</code> runs one
+      command, then the other, regardless of whether or not the first command succeeds.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ <span style="color:#204a87">command</span> <span style=
+        "color:#0000cf;font-weight:bold">1</span><span style=
+        "color:#000;font-weight:bold">;</span> <span style=
+        "color:#204a87">command</span> <span style=
+        "color:#0000cf;font-weight:bold">2</span></code></pre>
+      </div>
+      <p><code>&amp;&amp;</code> on the other hand runs the second command if and only if the first
+      command succeeds. This is useful when one command is dependent on the other.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell"><span style=
+        "color:#8f5902;font-style:italic"># The first command fails
+</span>$ failing <span style="color:#204a87">command</span> <span style=
+"color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style=
+"color:#204a87">echo</span> <span style="color:#4e9a06">&#34;success&#34;</span>
+&lt;output from first command&gt;
+
+<span style="color:#8f5902;font-style:italic"># The first command succeeds
+</span>$ succeeding <span style="color:#204a87">command</span> <span style=
+"color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style=
+"color:#204a87">echo</span> <span style="color:#4e9a06">&#34;success&#34;</span>
+&lt;output from first command&gt;
+success</code></pre>
+      </div>
+      <h2 id="flags">Flags</h2>
+      <p>Sometimes programs need to have options that are more complex. For example, the
+      <code>rm</code> program by default only deletes individual files (but not directories), but
+      can be told to recursively delete a folder full of files (or other folders). The solution is
+      &ldquo;flags,&rdquo; which are arguments preceeded by a &ldquo;-.&rdquo; Thus, the
+      &ldquo;recursive&rdquo; option is passed to <code>rm</code> with the <code>-r</code>
+      flag.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ rm folder/    <span style=
+        "color:#8f5902;font-style:italic"># this will fail
+</span>$ rm -r folder/ # this will recursively remove the directory</code></pre>
+      </div>
+      <p>Another flag that <code>rm</code> accepts is the <code>-f</code> flag, which
+      &ldquo;forces&rdquo; removal. What this really means is that there are no warnings for files
+      or directories that don&rsquo;t exist, which makes it useful in automated scripts. When using
+      multiple single-character flags, you can (usually) combine them into a single group of
+      characters.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell"><span style=
+        "color:#8f5902;font-style:italic"># These two are equivalent
+</span>$ rm -r -f folder/
+$ rm -rf folder/</code></pre>
+      </div>
+      <p>Flags can also be several characters long. The <code>ls</code> program which lists the
+      contents of a directory accepts the <code>--colors</code> option to display different colors
+      for different types of files. Sometimes, longer flags are multiple words; these flags are
+      written like <code>--name-of-flag</code>.</p>
+      <h3 id="the-help-flag">The Help (Flag)</h3>
+      <p>Programs have lots of different flags, and they&rsquo;re often not standard. Remembering
+      them all is tricky, and no one really remembers them all. Mostly every program, therefore,
+      implements at least one of these two flags: <code>-h</code> and <code>--help</code>. These
+      flags print out help files that tell you the purpose of the program, the arguments it
+      expects, and its various flags.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ ls --help
+Usage: ls <span style="color:#ce5c00;font-weight:bold">[</span>OPTION<span style=
+"color:#ce5c00;font-weight:bold">]</span>... <span style=
+"color:#ce5c00;font-weight:bold">[</span>FILE<span style=
+"color:#ce5c00;font-weight:bold">]</span>...
+List information about the FILEs <span style=
+"color:#ce5c00;font-weight:bold">(</span>the current directory by default<span style=
+"color:#ce5c00;font-weight:bold">)</span>.
+Sort entries alphabetically <span style=
+"color:#204a87;font-weight:bold">if</span> none of -cftuvSUX nor --sort is specified.
+
+Mandatory arguments to long options are mandatory <span style=
+"color:#204a87;font-weight:bold">for</span> short options too.
+  -a, --all                  <span style=
+"color:#204a87;font-weight:bold">do</span> not ignore entries starting with .
+  -A, --almost-all           <span style=
+"color:#204a87;font-weight:bold">do</span> not list implied . and ..
+      --author               with -l, print the author of each file
+  -b, --escape               print C-style escapes <span style=
+"color:#204a87;font-weight:bold">for</span> nongraphic characters
+<span style="color:#8f5902;font-style:italic"># ...
+</span>
+$ diff --help
+Usage: diff <span style="color:#ce5c00;font-weight:bold">[</span>OPTION<span style=
+"color:#ce5c00;font-weight:bold">]</span>... FILES
+Compare FILES line by line.
+
+Mandatory arguments to long options are mandatory <span style=
+"color:#204a87;font-weight:bold">for</span> short options too.
+      --normal                  output a normal diff <span style=
+"color:#ce5c00;font-weight:bold">(</span>the default<span style=
+"color:#ce5c00;font-weight:bold">)</span>
+  -q, --brief                   report only when files differ
+  -s, --report-identical-files  report when two files are the same
+  -c, -C NUM, --context<span style="color:#ce5c00;font-weight:bold">[=</span>NUM<span style=
+"color:#ce5c00;font-weight:bold">]</span>   output NUM <span style=
+"color:#ce5c00;font-weight:bold">(</span>default <span style=
+"color:#0000cf;font-weight:bold">3</span><span style=
+"color:#ce5c00;font-weight:bold">)</span> lines of copied context
+  -u, -U NUM, --unified<span style="color:#ce5c00;font-weight:bold">[=</span>NUM<span style=
+"color:#ce5c00;font-weight:bold">]</span>   output NUM <span style=
+"color:#ce5c00;font-weight:bold">(</span>default <span style=
+"color:#0000cf;font-weight:bold">3</span><span style=
+"color:#ce5c00;font-weight:bold">)</span> lines of unified context
+  -e, --ed                      output an ed script
+#...</code></pre>
+      </div>
+      <p>You&rsquo;ll see a couple of interesting patterns when describing the syntax: some of the
+      options are surrounded by brackets. These are optional arguments, and aren&rsquo;t required.
+      <code>ls</code> doesn&rsquo;t require any files; by default, it uses the current directory.
+      <code>diff</code> on the other hand does require files, so these are required.</p>
+      <p>Also, you&rsquo;ll see that the argument descriptions are completely capitalized. This
+      tells the user that they don&rsquo;t need to literally type &ldquo;FILES&rdquo; in the
+      command line, but rather that they should type the name of the files they want to
+      compare.</p>
+      <h2 id="redirection">Redirection</h2>
+      <p>When I was talking about programs like <code>echo</code> and <code>cat</code>, I said that
+      they sent their output to the terminal. That&rsquo;s not exactly true; in fact, they send
+      their output to <em>standard output</em>, which just happens to be <em>redirected</em> to the
+      terminal.</p>
+      <p>That sounds overly complicated, but it&rsquo;s really not. Standard input and standard
+      output are just communication channels that text or other data can move through. When running
+      a single command, standard input is connected to the terminal as keyboard input, and standard
+      output is connected to the terminal as text output. However, these streams of communication
+      can be redirected to several different locations.</p>
+      <h3 id="basics-of-redirection">Basics of Redirection</h3>
+      <p>The <code>&gt;</code> character tells the terminal to output standard output to a file.
+      Any output from the command preceding the <code>&gt;</code> is redirected to a file.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell"><span style=
+        "color:#8f5902;font-style:italic"># Echo some data into a file
+</span>$ <span style="color:#204a87">echo</span> <span style=
+"color:#4e9a06">&#34;This is my data.&#34;</span> &gt; out.txt
+
+<span style=
+"color:#8f5902;font-style:italic"># Copy the current directory&#39;s contents into a file
+</span>$ ls &gt; out.txt</code></pre>
+      </div>
+      <p>There is also another output channel, just to make things more confusing: <em>standard
+      error</em>. Any errors that occur while processing data is output to standard error.
+      It&rsquo;s very useful when you have a command that is writing standard output to a file but
+      fails; this way, you can see the error without it contaminating your file.</p>
+      <p>There are often cases when you want to redirect standard error to a file as well. This is
+      especially useful when someone wants to see an error message that you&rsquo;re getting, or if
+      you want to save the message to look at it later. To do this, you use the same syntax as
+      you&rsquo;d use for redirection to standard output, except this time, use
+      <code>2&gt;</code>.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell"><span style=
+        "color:#8f5902;font-style:italic"># On any command that is going to fail
+</span>$ diff <span style="color:#0000cf;font-weight:bold">2</span>&gt; out.txt</code></pre>
+      </div>
+      <h3 id="deep-redirection-magic">Deep Redirection Magic</h3>
+      <p>We&rsquo;ve been talking as if files and output streams are two separate things, but
+      they&rsquo;re technically not in the Linux world. You can output <em>to</em> an output stream
+      if you like, although this really only has one use case: merging standard output and standard
+      error. To reference the standard output stream as if it&rsquo;s a file, use
+      <code>&amp;1</code>.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ diff <span style=
+        "color:#0000cf;font-weight:bold">2</span>&gt;<span style=
+        "color:#000;font-weight:bold">&amp;</span><span style=
+        "color:#0000cf;font-weight:bold">1</span> &gt; out.txt</code></pre>
+      </div>
+      <p>This command redirects standard error to standard output, then redirects standard output
+      (which now includes standard error) to out.txt.</p>
+      <h3 id="standard-input-redirection">Standard Input Redirection</h3>
+      <p>Using <em>standard input</em> is very similar to standard output, except the other way
+      around: you read from a file and put its contents into a program. Programs that read from
+      standard in can also accept input directly from the terminal. In the below example:
+      <code>&lt;-</code> represents data typed into the terminal, and <code>-&gt;</code> represents
+      the output from <code>cat</code>.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ cat
+<span style="color:#8f5902;font-style:italic"># &lt;- Hello
+</span><span style="color:#8f5902;font-style:italic"># -&gt; Hello
+</span><span style="color:#8f5902;font-style:italic"># &lt;- World
+</span><span style="color:#8f5902;font-style:italic"># -&gt; World
+</span><span style="color:#8f5902;font-style:italic"># ...
+</span>
+$ <span style="color:#204a87">echo</span> <span style=
+"color:#4e9a06">&#34;Hello World&#34;</span> &gt; file.txt
+$ cat &lt; file.txt
+Hello world</code></pre>
+      </div>
+      <h2 id="pipes">Pipes</h2>
+      <p>We&rsquo;ve seen how streams can be connected to programs in both directions. Programs can
+      also be connected to <em>each other</em>. These use the <em>pipe character</em> (|) to
+      &ldquo;pipe&rdquo; data between two programs. This works by connecting the standard output of
+      the first program to the standard output of the second. This example uses the <code>wc</code>
+      (word count) program with the <code>-l</code> flag to count lines instead.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ cat file.txt <span style=
+        "color:#000;font-weight:bold">|</span> wc -l
+<span style="color:#0000cf;font-weight:bold">17</span> # or whatever</code></pre>
+      </div>
+      <p>Piping or &ldquo;chaining&rdquo; commands together is what really makes the command line
+      powerful. With just a handful of commands, you can manipulate data in complex ways. For
+      example, if you wanted to see how many files in the current directory are files, you can run
+      the following command. It uses <code>grep</code> to search for a pattern and leave in only
+      lines matching that pattern.</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ ls <span style=
+        "color:#000;font-weight:bold">|</span> grep txt <span style=
+        "color:#000;font-weight:bold">|</span> wc -l
+<span style="color:#0000cf;font-weight:bold">17</span></code></pre>
+      </div>
+      <p>Of course, you can combine redirection and pipes in more complex ways. Let&rsquo;s say
+      that you wanted to run a program, include any error messages in the output, filter it only to
+      lines that include the word &ldquo;token,&rdquo; and then output that to a file. This is a
+      complex request, but the command to do it is very short:</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-shell" data-lang="shell">$ my_program <span style=
+        "color:#0000cf;font-weight:bold">2</span>&gt;<span style=
+        "color:#000;font-weight:bold">&amp;</span><span style=
+        "color:#0000cf;font-weight:bold">1</span> <span style=
+        "color:#000;font-weight:bold">|</span> grep token &gt; out.txt</code></pre>
+      </div>
+      <p>Doing this with a graphical program might be more intuitive if you&rsquo;re used to it,
+      but it won&rsquo;t be nearly as robust. This approach that I&rsquo;ve written above will work
+      with <em>any</em> program on <em>any</em> Linux (or similar Unix-like system) machine, even
+      if the program authors never thought about this particular use case.</p>
+      <h2 id="circling-back-to-the-unix-philosophy">Circling Back to the Unix Philosophy</h2>
+      <p>The command line has been around since before computers had screens, and it wasn&rsquo;t
+      until 1973 that the concept of pipes was formally introduced into the shell. However, a lot
+      of modern idioms in Unix-y command lines come from the designs of the original Unix. The
+      creators of Unix, Ken Thomson and Dennis Ritchie, codified a lot of their design decisions
+      into the Unix philosophy. Other sources can give you a much more detailed look than I can
+      into the Unix philosophy; <a href="https://en.wikipedia.org/wiki/Unix_philosophy">the
+      Wikipedia page</a> is a good place to start. However, I&rsquo;ll provide a short summary
+      here.</p>
+      <p>The basic idea is this: &ldquo;do one thing and do it well.&rdquo; Rather than creating a
+      program that does everything, make a lot of small programs that when chained together do
+      everything. This emphasizes the design philosophy of <em>composability</em>, where complex
+      tasks can be accomplished by composing several small programs together.</p>
+      <p>Another way of thinking of the Unix Philosophy (this term coined by Andrew Hunt and David
+      Thomas in their book <em>The Pragmatic Programmer</em>) is by designing &ldquo;small, sharp
+      tools.&rdquo;</p>
+      <p>Other parts of the Unix philosophy are concerned more with programmers and the tools they
+      build, rather than the end users. For example, it emphasizes simplicity of implementation
+      over speed, since more complex code has more places for bugs to enter.</p>
+      <p>The main point is that building a large system out of smaller parts is much easier and
+      more reliable than building a large system as a monolith. This is the basic principle between
+      the design of the modern (heh) command line.</p>
+      <h2 id="next-up">Next Up</h2>
+      <p>My next post will go into more detail about some specific command-line programs that I
+      find very useful. They might not be the most useful programs for you, and you might find some
+      different programs more useful than I. That&rsquo;s fine! One of the great things about Linux
+      is that each system can be tailored to each user. My setup doesn&rsquo;t have to look mostly
+      like anyone else&rsquo;s, and neither does yours.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-links">
+      <span class="footer-item"><a href=
+      "mailto://walt@waltermays.com">walt@waltermays.com</a></span> <span class=
+      "footer-item"><a href="https://github.com/Sircular">Sircular</a> on Github</span>
+    </div>
+    <div>
+      Proudly Powered by <a href="https://gohugo.io/">Hugo</a>
+    </div>
+  </footer>
+  <script type="text/javascript" src="/scroll-header.js"></script>
+</body>
+</html>
