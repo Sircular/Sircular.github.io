@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://waltermays.com/blog/2018/10/switching-to-hugo/</loc>
+    <lastmod>2018-10-22T19:37:56-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://waltermays.com/blog/2018/08/internship-post-mortem/</loc>
     <lastmod>2018-08-07T00:00:00+00:00</lastmod>
   </url>
@@ -99,7 +104,7 @@
   
   <url>
     <loc>https://waltermays.com/blog/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-22T19:37:56-05:00</lastmod>
   </url>
   
   <url>
@@ -121,7 +126,7 @@
   
   <url>
     <loc>https://waltermays.com/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-22T19:37:56-05:00</lastmod>
   </url>
   
   <url>
@@ -142,7 +147,7 @@
   
   <url>
     <loc>https://waltermays.com/categories/programming/</loc>
-    <lastmod>2018-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-22T19:37:56-05:00</lastmod>
     <priority>0</priority>
   </url>
   

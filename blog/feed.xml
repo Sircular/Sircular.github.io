@@ -6,10 +6,19 @@
     <description>Recent content in Blog on Walter Mays</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Oct 2018 19:37:56 -0500</lastBuildDate>
     
 	<atom:link href="https://waltermays.com/blog/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Switching to Hugo</title>
+      <link>https://waltermays.com/blog/2018/10/switching-to-hugo/</link>
+      <pubDate>Mon, 22 Oct 2018 19:37:56 -0500</pubDate>
+      
+      <guid>https://waltermays.com/blog/2018/10/switching-to-hugo/</guid>
+      <description>I&amp;rsquo;ve been using Jekyll to host this website since I&amp;rsquo;ve started it. I originally started using it because it&amp;rsquo;s what Github Pages provided, but since I wanted to use a custom theme, I had to use several hacks to publish a compiled version of my site to the master branch. I&amp;rsquo;ve finally switched to Hugo, since I figured that if I was going to have to roll my own publication tools, I might as well use a site generator that fit with my mental model.</description>
+    </item>
     
     <item>
       <title>Internship Post-Mortem</title>

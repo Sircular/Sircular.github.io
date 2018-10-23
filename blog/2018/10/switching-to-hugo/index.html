@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="/favicon.ico"><!-- Begin SEO -->
+  <meta property="og:title" content="Switching to Hugo">
+  <meta name="description" content=
+  "I&rsquo;ve been using Jekyll to host this website since I&rsquo;ve started it. I originally started using it because it&rsquo;s what Github Pages provided, but since I wanted to use a custom theme, I had to use several hacks to publish a compiled version of my site to the master branch. I&rsquo;ve finally switched to Hugo, since I figured that if I was going to have to roll my own publication tools, I might as well use a site generator that fit with my mental model.">
+  <link rel="canonical" href="https://waltermays.com/blog/2018/10/switching-to-hugo/">
+  <meta property="og:url" content="https://waltermays.com/blog/2018/10/switching-to-hugo/">
+  <meta property="og:site_name" content="Walter Mays">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2018-10-22 19:37:56 -0500 CDT">
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://waltermays.com/blog/2018/10/switching-to-hugo/"
+    },
+    "@type": "WebPage",
+    "url": "https://waltermays.com/blog/2018/10/switching-to-hugo/",
+    "headline": "Switching to Hugo",
+    "dateModified": "2018-10-22 19:37:56 -0500 CDT",
+    "datePublished": "2018-10-22 19:37:56 -0500 CDT",
+    "description": "I&rsquo;ve been using Jekyll to host this website since I&rsquo;ve started it. I originally started using it because it&rsquo;s what Github Pages provided, but since I wanted to use a custom theme, I had to use several hacks to publish a compiled version of my site to the master branch. I&rsquo;ve finally switched to Hugo, since I figured that if I was going to have to roll my own publication tools, I might as well use a site generator that fit with my mental model."
+  }
+  </script><!-- End SEO -->
+  <title>Switching to Hugo | Walter Mays</title>
+  <script type="text/javascript" src=
+  "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="site-title">
+      <a href="/">Walter Mays</a>
+    </div>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a> <a href="/learn-you-some-linux/" class="nav-link">Learn
+      You Some Linux</a> <a href="/blog/" class="nav-link">Blog</a>
+    </nav>
+  </header>
+  <div id="content">
+    <div class="container">
+      <h1 class="post-title">Switching to Hugo</h1>
+      <div class="post-info">
+        October 22, 2018 &bull; <a href="/categories/programming">Programming</a>
+      </div>
+      <p>I&rsquo;ve been using Jekyll to host this website since I&rsquo;ve started it. I
+      originally started using it because it&rsquo;s what Github Pages provided, but since I wanted
+      to use a custom theme, I had to use several hacks to publish a compiled version of my site to
+      the master branch. I&rsquo;ve finally switched to Hugo, since I figured that if I was going
+      to have to roll my own publication tools, I might as well use a site generator that fit with
+      my mental model.</p>
+      <p>Jekyll is a perfectly good piece of software, and I really enjoyed using it, but there
+      were a few issues that got me to switch:</p>
+      <ul>
+        <li>
+          <p><strong>Lots of special cases.</strong> To write a post in Jekyll, you had to create a
+          file in the _posts directory; the templating engine now knows that these are blog posts
+          that should be included on the main blog pages. This hooked into the pagination system in
+          a way that I&rsquo;m not sure I could fully explain. The posts&rsquo; dates were
+          determined by looking at the prefixes of the files, rather than setting a variable in the
+          frontmatter.</p>
+          <p>In contrast, Hugo treats <em>all</em> pages a little like this: each page in the
+          <code>content/</code> directory is included in a tree of pages. Lower directories are in
+          their own subsections; this means that everything in the <code>blog/</code> directory is
+          grouped together, as is anything in any other directory. I find this much easier to
+          understand, because there&rsquo;s one general case instead of a general case and special
+          case. Oh, and the publication date is controlled by frontmatter, rather than <em>looking
+          at the filename</em>.</p>
+          <p>Likewise, Hugo&rsquo;s &ldquo;taxonomy&rdquo; system is equally general: there can be
+          as many different taxonomies as you like (this site only uses <code>category</code>), and
+          they can all be accessed by name. I&rsquo;m not 100% certain that Jekyll doesn&rsquo;t
+          support this, but if they do, their docs don&rsquo;t make it apparent.</p>
+          <p>There are several other features (<em>cough</em> Menus <em>cough</em>) that I think
+          Hugo does better because it treats them as general-purpose features instead of special
+          case features.</p>
+        </li>
+        <li>
+          <p><strong>Combination of presentation and content.</strong> All static site generators
+          have this to some extent, whether we like it or not. What I didn&rsquo;t like about
+          Jekyll was that all of the website content was in the top-level directory, mixed in with
+          all the configuration. Hugo, on the other hand, places all website content in the
+          <code>content</code> directory. It&rsquo;s a very small difference, but that separation
+          helps me keep track of which content gets published.</p>
+        </li>
+        <li>
+          <p><strong>Lack of user-friendly tooling.</strong> Jekyll isn&rsquo;t <em>bad</em> in
+          this respect, but I think Hugo is better. For example, Hugo has a feature that it calls
+          &ldquo;archetypes,&rdquo; which are file templates for new content files. The default one
+          just creates a draft page, but you can easily add others. Which archetype is used when
+          creating a new page has to do with its subgroup, which is determined by its
+          directory.</p>
+          <p>There are a few other examples of this lack of tooling, but I think the archetypes
+          feature most clearly illustrates the differences that I see.</p>
+        </li>
+      </ul>
+      <p>So I&rsquo;ve switched! This is the first post that I&rsquo;m publishing with Hugo after a
+      long time setting up my theme (that&rsquo;s what I get for porting a custom theme). Was it
+      worth it? Yes. (Probably.)</p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-links">
+      <span class="footer-item"><a href=
+      "mailto://walt@waltermays.com">walt@waltermays.com</a></span> <span class=
+      "footer-item"><a href="https://github.com/Sircular">Sircular</a> on Github</span>
+    </div>
+    <div>
+      Proudly Powered by <a href="https://gohugo.io/">Hugo</a>
+    </div>
+  </footer>
+  <script type="text/javascript" src="/scroll-header.js"></script>
+</body>
+</html>
