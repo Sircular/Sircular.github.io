@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vim on Walter Mays</title>
-    <link>https://waltermays.com/categories/vim/</link>
+    <link>http://waltermays.com/categories/vim/</link>
     <description>Recent content in Vim on Walter Mays</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://waltermays.com/categories/vim/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://waltermays.com/categories/vim/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Crazy Notetaking Setup</title>
-      <link>https://waltermays.com/blog/2017/12/my-crazy-notetaking-setup/</link>
+      <link>http://waltermays.com/blog/2017/12/my-crazy-notetaking-setup/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/blog/2017/12/my-crazy-notetaking-setup/</guid>
+      <guid>http://waltermays.com/blog/2017/12/my-crazy-notetaking-setup/</guid>
       <description>Without going into too much detail, let&amp;rsquo;s just say that I enjoy messing with my workflow far too much. I&amp;rsquo;m constantly trying to get a more efficient setup, a faster, newer, better, shinier plugin, and a more robust tool to use. I have an addiction for configuration. However, for the past few months, I&amp;rsquo;ve found a workflow that works pretty consistently for me.
 Note-Taking I take all of my notes in Vim.</description>
     </item>

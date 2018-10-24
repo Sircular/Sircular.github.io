@@ -2,83 +2,83 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Walter Mays</title>
-    <link>https://waltermays.com/categories/</link>
+    <link>http://waltermays.com/categories/</link>
     <description>Recent content in Categories on Walter Mays</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://waltermays.com/categories/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://waltermays.com/categories/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>D&amp;D</title>
-      <link>https://waltermays.com/categories/dd/</link>
+      <link>http://waltermays.com/categories/dd/</link>
       <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/dd/</guid>
+      <guid>http://waltermays.com/categories/dd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git</title>
-      <link>https://waltermays.com/categories/git/</link>
+      <link>http://waltermays.com/categories/git/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/git/</guid>
+      <guid>http://waltermays.com/categories/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://waltermays.com/categories/linux/</link>
+      <link>http://waltermays.com/categories/linux/</link>
       <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/linux/</guid>
+      <guid>http://waltermays.com/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Personal</title>
-      <link>https://waltermays.com/categories/personal/</link>
+      <link>http://waltermays.com/categories/personal/</link>
       <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/personal/</guid>
+      <guid>http://waltermays.com/categories/personal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
-      <link>https://waltermays.com/categories/programming/</link>
+      <link>http://waltermays.com/categories/programming/</link>
       <pubDate>Mon, 22 Oct 2018 19:37:56 -0500</pubDate>
       
-      <guid>https://waltermays.com/categories/programming/</guid>
+      <guid>http://waltermays.com/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Random</title>
-      <link>https://waltermays.com/categories/random/</link>
+      <link>http://waltermays.com/categories/random/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/random/</guid>
+      <guid>http://waltermays.com/categories/random/</guid>
       <description></description>
     </item>
     
     <item>
       <title>School</title>
-      <link>https://waltermays.com/categories/school/</link>
+      <link>http://waltermays.com/categories/school/</link>
       <pubDate>Tue, 06 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/school/</guid>
+      <guid>http://waltermays.com/categories/school/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vim</title>
-      <link>https://waltermays.com/categories/vim/</link>
+      <link>http://waltermays.com/categories/vim/</link>
       <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/categories/vim/</guid>
+      <guid>http://waltermays.com/categories/vim/</guid>
       <description></description>
     </item>
     

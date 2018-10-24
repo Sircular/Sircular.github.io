@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Walter Mays</title>
-    <link>https://waltermays.com/categories/programming/</link>
+    <link>http://waltermays.com/categories/programming/</link>
     <description>Recent content in Programming on Walter Mays</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Oct 2018 19:37:56 -0500</lastBuildDate>
     
-	<atom:link href="https://waltermays.com/categories/programming/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://waltermays.com/categories/programming/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Switching to Hugo</title>
-      <link>https://waltermays.com/blog/2018/10/switching-to-hugo/</link>
+      <link>http://waltermays.com/blog/2018/10/switching-to-hugo/</link>
       <pubDate>Mon, 22 Oct 2018 19:37:56 -0500</pubDate>
       
-      <guid>https://waltermays.com/blog/2018/10/switching-to-hugo/</guid>
+      <guid>http://waltermays.com/blog/2018/10/switching-to-hugo/</guid>
       <description>I&amp;rsquo;ve been using Jekyll to host this website since I&amp;rsquo;ve started it. I originally started using it because it&amp;rsquo;s what Github Pages provided, but since I wanted to use a custom theme, I had to use several hacks to publish a compiled version of my site to the master branch. I&amp;rsquo;ve finally switched to Hugo, since I figured that if I was going to have to roll my own publication tools, I might as well use a site generator that fit with my mental model.</description>
     </item>
     
     <item>
       <title>Internship Post-Mortem</title>
-      <link>https://waltermays.com/blog/2018/08/internship-post-mortem/</link>
+      <link>http://waltermays.com/blog/2018/08/internship-post-mortem/</link>
       <pubDate>Tue, 07 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/blog/2018/08/internship-post-mortem/</guid>
+      <guid>http://waltermays.com/blog/2018/08/internship-post-mortem/</guid>
       <description>On Friday I finished my internship at CBOE. Quite honestly I&amp;rsquo;m going to miss working there; I learned a lot, both from my coworkers and from the codebase. In this post I&amp;rsquo;m going to go over what I liked (and disliked) about my summer internship.
 The Known Unknowns Going into this internship, I knew that I would have to learn how to properly develop software with others. Most of my prior experience involved me writing a program to solve a problem or complete an assignment.</description>
     </item>
     
     <item>
       <title>My First &#39;Real&#39; Programming Job</title>
-      <link>https://waltermays.com/blog/2018/05/my-first-real-programming-job/</link>
+      <link>http://waltermays.com/blog/2018/05/my-first-real-programming-job/</link>
       <pubDate>Tue, 29 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/blog/2018/05/my-first-real-programming-job/</guid>
+      <guid>http://waltermays.com/blog/2018/05/my-first-real-programming-job/</guid>
       <description>Last week, I started my first internship at Cboe Global Markets. Hooray! I&amp;rsquo;m getting paid to do what I do for fun anyway!
 I was expecting it to be difficult, and it is, but it&amp;rsquo;s certainly not as difficult as I was led to believe. Obviously I can&amp;rsquo;t talk about anything that I&amp;rsquo;m working on in detail (NDAs and all that), but I can say that I&amp;rsquo;m being much more productive than I expected.</description>
     </item>
     
     <item>
       <title>My First Successful Game Jam</title>
-      <link>https://waltermays.com/blog/2018/04/my-first-successful-game-jam/</link>
+      <link>http://waltermays.com/blog/2018/04/my-first-successful-game-jam/</link>
       <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/blog/2018/04/my-first-successful-game-jam/</guid>
+      <guid>http://waltermays.com/blog/2018/04/my-first-successful-game-jam/</guid>
       <description>I competed in Ludum Dare 41 last weekend, when I made a small video game in 48 hours. Was that ever a learning experience.
 First off, you can play my entry, Puzzle Prizon, here! LD 41 is still in its voting rounds, so if you also participated in Ludum Dare, I&amp;rsquo;d like to have your feedback.
 Preparation I&amp;rsquo;ve written about my other failed attempts at participating in game jams. Every time that I&amp;rsquo;ve gone to join one, life has gotten in the way, whether that be schoolwork or laziness.</description>
@@ -53,20 +53,20 @@ Preparation I&amp;rsquo;ve written about my other failed attempts at participati
     
     <item>
       <title>My Third Failed Game Jam</title>
-      <link>https://waltermays.com/blog/2018/01/my-third-failed-game-jam/</link>
+      <link>http://waltermays.com/blog/2018/01/my-third-failed-game-jam/</link>
       <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/blog/2018/01/my-third-failed-game-jam/</guid>
+      <guid>http://waltermays.com/blog/2018/01/my-third-failed-game-jam/</guid>
       <description>I&amp;rsquo;ve been playing with game development for several years now. I&amp;rsquo;ve researched engines and frameworks, looked into drawing, level design, and music programs, and thrown around ideas. I even started programming a few of them. Guess how many I&amp;rsquo;ve finished.
 I&amp;rsquo;m not the only one with this problem. Most &amp;ldquo;game developers&amp;rdquo; never really get much farther than a working prototype of a few of their core mechanics. While that can be fun &amp;mdash; if you call fiddling with weights until the movement doesn&amp;rsquo;t seem to floaty or heavy &amp;ldquo;fun&amp;rdquo; &amp;mdash; it&amp;rsquo;s not as fulfilling as (I imagine) completing a game would be.</description>
     </item>
     
     <item>
       <title>Adventures in Haskell</title>
-      <link>https://waltermays.com/blog/2017/12/adventures-in-haskell/</link>
+      <link>http://waltermays.com/blog/2017/12/adventures-in-haskell/</link>
       <pubDate>Fri, 08 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://waltermays.com/blog/2017/12/adventures-in-haskell/</guid>
+      <guid>http://waltermays.com/blog/2017/12/adventures-in-haskell/</guid>
       <description>Something has possessed me to learn Haskell. I&amp;rsquo;m not sure what exactly, but it must be an evil, illogical demon, since none of my courses nor my possible internships use Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170 (which I most certainly do not have), so it&amp;rsquo;s probably an impossible task. Nonetheless, I shall soldier on.
 My first thought was to attempt to port a working program to Haskell.</description>
     </item>
