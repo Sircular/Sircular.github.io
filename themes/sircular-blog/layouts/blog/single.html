@@ -1,6 +1,9 @@
 {{ define "main" }}
 <h1 class="post-title">{{ .Title }}</h1>
 {{ partial "blog/post-desc" . }}
+{{ with .Params.note }}
+<p><em>{{ . | markdownify }}</em></p>
+{{ end }}
 {{ .Content }}
 {{ end }}
 {{ define "scripts" }}

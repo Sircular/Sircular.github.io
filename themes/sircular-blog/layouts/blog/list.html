@@ -9,6 +9,9 @@
   </h2>
   {{ partial "blog/post-desc" . }}
   <div class="post-content">
+    {{ with .Params.note }}
+      <p><em>{{ . | markdownify }}</em></p>
+    {{ end }}
     <p>{{ .Summary }}</p>
     <a href="{{ .RelPermalink }}">Read More</a>
   </div>
