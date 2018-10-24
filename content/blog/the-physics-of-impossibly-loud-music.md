@@ -4,6 +4,7 @@ date: "2018-05-16"
 categories:
   - Random
 note: This post was inspired very heavily by xkcd's [What If](https://what-if.xkcd.com/) series.
+math: true
 ---
 
 I was re-reading Douglas Adams's *Restaraunt at the End of the Universe*, and I came across one of Adams's many flights of fancy:
