@@ -21,12 +21,12 @@ if ! hugo; then
     echo "Build failed."
     exit 1
 fi
-# prettify using tidy
+# Post processing steps
 echo "Postprocessing..."
-if ! find "$PUBLISH_DIR" -name '*.html' -exec tidy -iqm -w 100 --preserve-entities yes --tidy-mark no {} \; ; then
-    echo "Build failed."
-    exit 1
-fi
+while IFS= read -rd '' file;
+do
+    tidy -iqm -w 100 --preserve-entities yes --tidy-mark no "$file"
+done < <( find "$PUBLISH_DIR" -name '*.html' -print0 )
 
 TMP="$(mktemp -d)"
 mv "$PUBLISH_DIR"/* "$TMP"
