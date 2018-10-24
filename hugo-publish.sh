@@ -31,6 +31,7 @@ done < <( find "$PUBLISH_DIR" -name '*.html' -print0 )
 TMP="$(mktemp -d)"
 mv "$PUBLISH_DIR"/* "$TMP"
 git checkout "$PUBLISH_BRANCH"
+git pull
 rm -rf *
 mv "$TMP"/* .
 rmdir "$TMP"
