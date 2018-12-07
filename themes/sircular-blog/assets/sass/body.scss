@@ -64,6 +64,13 @@ blockquote {
     border-left:   2px solid $accent-color;
 }
 
+hr {
+    border: 1px solid $light-gray;
+    width: 50%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
 a {
     color:           $accent-color;
     text-decoration: none;
