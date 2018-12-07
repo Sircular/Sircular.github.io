@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ range (.Pages.ByParam "chapter") }}
+<h3>
+    <a href="{{ .URL }}" class="post-link">
+        Chapter {{ .Params.chapter }}: {{ .Title }}
+    </a>
+</h3>
+{{ end }}
+{{ end }}

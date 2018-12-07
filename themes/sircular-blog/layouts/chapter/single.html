@@ -1,0 +1,5 @@
+{{ define "main" }}
+<h1 class="page-title">Chapter {{ .Params.chapter }}: {{ .Title }}</h1>
+<p class="back"><a href="{{ .CurrentSection.URL }}">&laquo; {{ .CurrentSection.Title }}</a></p>
+{{ .Content }}
+{{ end }}
