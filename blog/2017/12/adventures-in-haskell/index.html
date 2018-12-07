@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no"/>
-  
-  <link rel="icon" href="/favicon.ico"/>
-  
-  <!-- Begin SEO -->
-<meta property="og:title" content="Adventures in Haskell"/>
-<meta name="description" content="Something has possessed me to learn Haskell. I&rsquo;m not sure what exactly, but it must be an evil, illogical demon, since none of my courses nor my possible internships use Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170 (which I most certainly do not have), so it&rsquo;s probably an impossible task. Nonetheless, I shall soldier on.
-My first thought was to attempt to port a working program to Haskell."/>
-<link rel="canonical" href="http://waltermays.com/blog/2017/12/adventures-in-haskell/"/>
-<meta property="og:url" content="http://waltermays.com/blog/2017/12/adventures-in-haskell/"/>
-<meta property="og:site_name" content="Walter Mays"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2017-12-08 00:00:00 &#43;0000 UTC"/>
-<script type="application/ld+json">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="/favicon.ico"><!-- Begin SEO -->
+  <meta property="og:title" content="Adventures in Haskell">
+  <meta name="description" content=
+  "Something has possessed me to learn Haskell. I&rsquo;m not sure what exactly, but it must be an evil, illogical demon, since none of my courses nor my possible internships use Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170 (which I most certainly do not have), so it&rsquo;s probably an impossible task. Nonetheless, I shall soldier on. My first thought was to attempt to port a working program to Haskell.">
+  <link rel="canonical" href="http://waltermays.com/blog/2017/12/adventures-in-haskell/">
+  <meta property="og:url" content="http://waltermays.com/blog/2017/12/adventures-in-haskell/">
+  <meta property="og:site_name" content="Walter Mays">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-12-08 00:00:00 &#43;0000 UTC">
+  <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "mainEntityOfPage": {
@@ -28,195 +25,482 @@ My first thought was to attempt to port a working program to Haskell."/>
     "dateModified": "2017-12-08 00:00:00 &#43;0000 UTC",
     "datePublished": "2017-12-08 00:00:00 &#43;0000 UTC",
     "description": "Something has possessed me to learn Haskell. I&rsquo;m not sure what exactly, but it must be an evil, illogical demon, since none of my courses nor my possible internships use Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170 (which I most certainly do not have), so it&rsquo;s probably an impossible task. Nonetheless, I shall soldier on.
-My first thought was to attempt to port a working program to Haskell."
+  My first thought was to attempt to port a working program to Haskell."
   }
-</script>
-<!-- End SEO -->
-
-  <title>
-    Adventures in Haskell | Walter Mays
-    
-  </title>
-  
-  <link rel="stylesheet" href="/style.css" />
+  </script><!-- End SEO -->
+  <title>Adventures in Haskell | Walter Mays</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
-
-  <body>
-    <header>
-  <div class="site-title"><a href="/">Walter Mays</a></div>
-  <nav class="nav-links">
-    
-    
-    
-    <a href="/" class="nav-link">Home</a>
-    
-    
-    
-    <a href="/learn-you-some-linux/" class="nav-link">Learn You Some Linux</a>
-    
-    
-    
-    <a href="/blog/" class="nav-link">Blog</a>
-    
-    
-  </nav>
-</header>
-
-    <div id="content">
-      <div class="container">
-        
-<h1 class="post-title">Adventures in Haskell</h1>
-<div class="post-info">
-  December 8, 2017
-  
-    &bull;
-    
-    
-    <a href="/categories/programming">Programming</a>
-  
-</div>
-
-
-
-
-<p>Something has possessed me to learn Haskell. I&rsquo;m not sure what exactly, but it must be an evil, illogical demon, since none of my courses nor my possible internships use Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170 (which I most certainly do <em>not</em> have), so it&rsquo;s probably an impossible task. Nonetheless, I shall soldier on.</p>
-
-<p>My first thought was to attempt to port a working program to Haskell. I recently completed some assignments including problems that are somewhat practical, and I thought that perhaps porting one of those (in this case, an application to analyze simple weather data) would be useful.</p>
-
-<p>The task is this: given two sets of data collected from different weather stations (which may or may not be in chronological order), determine which stations are missing entries and detect when there are discrepancies between the two. This is a rather procedural task, so Haskell may not be the best choice, but the interesting blend of functional and procedural code that I got out of this seems like it would be common in &ldquo;real world&rdquo; Haskell.</p>
-
-<p>I&rsquo;ll post two sections of the code: one where I explain each of the sections, and one where all the code is grouped together. If you are just interested in the end result, feel free to skip the first section.</p>
-
-<h2 id="explanation">Explanation</h2>
-
-<p>The first section imports the different libraries and defines function &ldquo;prototypes&rdquo; (I&rsquo;m not sure if that&rsquo;s what they&rsquo;re called, and if any Haskellians could let me know, I&rsquo;d appreciate it.).</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Data.Function</span>
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Data.List</span>
-
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">System.Environment</span>
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">System.IO</span>
-
-<span style="color:#000">parseEntry</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">getEntries</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">IO</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
-<span style="color:#000">sortEntries</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
-<span style="color:#000">processEntries</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">IO</span> <span style="color:#204a87">()</span></code></pre></div>
-<p>Here is the implementation of the main function:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-    <span style="color:#000">args</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getArgs</span>
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">length</span> <span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">then</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;Usage: weather &lt;file1&gt; &lt;file2&gt;&#34;</span>
-    <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">e1</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">head</span> <span style="color:#000">args</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">e2</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">!!</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style="color:#000">e1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style="color:#000">e2</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
-<p>One of the things I love about Haskell is its readability. This gets the arguments that I pass to my program, determines if there are enough, then uses those names as file paths to read entries (there is no error checking; that&rsquo;s something I need to learn how to do if I want to do any real programming). It then sorts those entries, and then processes them.</p>
-
-<p>Here are the bodies of my other functions:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#000">parseEntry</span> <span style="color:#000">str</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">words</span> <span style="color:#000">str</span> <span style="color:#204a87;font-weight:bold">of</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">read</span> <span style="color:#000">d</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#000">getEntries</span> <span style="color:#000">fname</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-    <span style="color:#000">contents</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">readFile</span> <span style="color:#000">fname</span>
-    <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">entries</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">map</span> <span style="color:#000">parseEntry</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">tail</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">lines</span> <span style="color:#000">contents</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">return</span> <span style="color:#000">entries</span>
-
-<span style="color:#000">sortEntries</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">sortBy</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">compare</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">on</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#000">fst</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#000">processEntries</span> <span style="color:#204a87;font-weight:bold">_</span> <span style="color:#204a87;font-weight:bold">[]</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style="color:#204a87">()</span>
-<span style="color:#000">processEntries</span> <span style="color:#204a87;font-weight:bold">[]</span> <span style="color:#204a87;font-weight:bold">_</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style="color:#204a87">()</span>
-
-<span style="color:#000">processEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">ss</span><span style="color:#000;font-weight:bold">)</span> 
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">fst</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">fst</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Missing entry in first file at &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">ss</span>
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">fst</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">fst</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Missing entry in second file at &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style="color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000">fs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">ss</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">snd</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">/=</span> <span style="color:#000">snd</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Discrepancy of &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">show</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">abs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">snd</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">snd</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#4e9a06">&#34; at &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style="color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000">fs</span> <span style="color:#000">ss</span>
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">otherwise</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">processEntries</span> <span style="color:#000">fs</span> <span style="color:#000">ss</span></code></pre></div>
-<p>The first function, parseEntry, accepts a string and returns a tuple containing a String and a Double. It parses the raw string and converts it into a pair that contains the date and the temperature on that date. GetEntries is a helper function that accepts a filename and returns a list of parsed entries. Sort entries does exactly what it says on the tin: it sorts the date.</p>
-
-<p>The final one, process entries, is probably the most complex function in the program. Even it is simple: given two lists of (String, Double) tuples, it processes them and determines if any entries are missing from either file. This is almost inherently a procedural process, and my C implementation used loops to accomplish this.</p>
-
-<p>Instead, I used recursion, following a pattern that I&rsquo;ve seen in a few other Haskell programs: splitting the list into its first element and its tail. This way, if I realize that I need to process the first element again (which happens, in this case, when a file is missing an entry), I can simply join it back to the list with either <code>(f:fs)</code> or <code>(s:ss)</code>. Despite my initial hesitation about implementing this process recursively, I find that the new version is extremely readable.</p>
-
-<p>The two patterns that I include are the base cases, which stop recursion if either of the lists are completely emptied. While this could possibly cause problems if there is a missing entry at the end of the file, for simplicity the assignment did not include that particular edge case.</p>
-
-<h2 id="full-code">Full Code</h2>
-
-<p>Here&rsquo;s the entire source of my program:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-haskell" data-lang="haskell"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Data.Function</span>
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Data.List</span>
-
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">System.Environment</span>
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">System.IO</span>
-
-<span style="color:#000">parseEntry</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">getEntries</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">String</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">IO</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
-<span style="color:#000">sortEntries</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
-<span style="color:#000">processEntries</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">[(</span><span style="color:#204a87;font-weight:bold">String</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">IO</span> <span style="color:#204a87">()</span>
-
-<span style="color:#000">main</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-    <span style="color:#000">args</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getArgs</span>
-    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">length</span> <span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">then</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#4e9a06">&#34;Usage: weather &lt;file1&gt; &lt;file2&gt;&#34;</span>
-    <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">e1</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">head</span> <span style="color:#000">args</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">e2</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">!!</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style="color:#000">e1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style="color:#000">e2</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#000">parseEntry</span> <span style="color:#000">str</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">words</span> <span style="color:#000">str</span> <span style="color:#204a87;font-weight:bold">of</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">d</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">-&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">read</span> <span style="color:#000">d</span> <span style="color:#204a87;font-weight:bold">::</span> <span style="color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#000">getEntries</span> <span style="color:#000">fname</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-    <span style="color:#000">contents</span> <span style="color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">readFile</span> <span style="color:#000">fname</span>
-    <span style="color:#204a87;font-weight:bold">let</span> <span style="color:#000">entries</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">map</span> <span style="color:#000">parseEntry</span> <span style="color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">tail</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">lines</span> <span style="color:#000">contents</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">return</span> <span style="color:#000">entries</span>
-
-<span style="color:#000">sortEntries</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">sortBy</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">compare</span> <span style="color:#000;font-weight:bold">`</span><span style="color:#000">on</span><span style="color:#000;font-weight:bold">`</span> <span style="color:#000">fst</span><span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#000">processEntries</span> <span style="color:#204a87;font-weight:bold">_</span> <span style="color:#204a87;font-weight:bold">[]</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style="color:#204a87">()</span>
-<span style="color:#000">processEntries</span> <span style="color:#204a87;font-weight:bold">[]</span> <span style="color:#204a87;font-weight:bold">_</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style="color:#204a87">()</span>
-
-<span style="color:#000">processEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">ss</span><span style="color:#000;font-weight:bold">)</span> 
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">fst</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">fst</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Missing entry in first file at &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">ss</span>
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">fst</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">fst</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Missing entry in second file at &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style="color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000">fs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#204a87;font-weight:bold">:</span><span style="color:#000">ss</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">snd</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">/=</span> <span style="color:#000">snd</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
-        <span style="color:#000">putStrLn</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Discrepancy of &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">show</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">abs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">snd</span> <span style="color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">snd</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#4e9a06">&#34; at &#34;</span> <span style="color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style="color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">processEntries</span> <span style="color:#000">fs</span> <span style="color:#000">ss</span>
-    <span style="color:#ce5c00;font-weight:bold">|</span> <span style="color:#000">otherwise</span> <span style="color:#204a87;font-weight:bold">=</span> <span style="color:#000">processEntries</span> <span style="color:#000">fs</span> <span style="color:#000">ss</span></code></pre></div>
-<p>I&rsquo;m sure that any Haskell purist would reel back in horror upon encountering this code, but dammit, I worked hard on this. It&rsquo;s significantly shorter than my original C implementation (which clocks in at 140 lines of code, including comments and whitespace).</p>
-
-<p>Overall, I&rsquo;m impressed by Haskell&rsquo;s terseness balanced with good readability. I look forward to actually finding an application for this.</p>
-
-
-      </div>
+<body>
+  <header>
+    <div class="site-title">
+      <a href="/">Walter Mays</a>
     </div>
-    <footer>
-  <div class="footer-links">
-    
-    <span class="footer-item">
-      <a href="mailto://walt@waltermays.com">walt@waltermays.com</a>
-    </span>
-    
-    
-    <span class="footer-item">
-      <a href="https://github.com/Sircular">
-        Sircular</a> on Github
-    </span>
-    
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a> <a href="/learn-you-some-linux/" class="nav-link">Learn
+      You Some Linux</a> <a href="/blog/" class="nav-link">Blog</a>
+    </nav>
+  </header>
+  <div id="content">
+    <div class="container">
+      <h1 class="post-title">Adventures in Haskell</h1>
+      <div class="post-info">
+        December 8, 2017 &bull; <a href="/categories/programming">Programming</a>
+      </div>
+      <p>Something has possessed me to learn Haskell. I&rsquo;m not sure what exactly, but it must
+      be an evil, illogical demon, since none of my courses nor my possible internships use
+      Haskell. Additionally, I am convinced that Haskell programmers have an IQ of at least 170
+      (which I most certainly do <em>not</em> have), so it&rsquo;s probably an impossible task.
+      Nonetheless, I shall soldier on.</p>
+      <p>My first thought was to attempt to port a working program to Haskell. I recently completed
+      some assignments including problems that are somewhat practical, and I thought that perhaps
+      porting one of those (in this case, an application to analyze simple weather data) would be
+      useful.</p>
+      <p>The task is this: given two sets of data collected from different weather stations (which
+      may or may not be in chronological order), determine which stations are missing entries and
+      detect when there are discrepancies between the two. This is a rather procedural task, so
+      Haskell may not be the best choice, but the interesting blend of functional and procedural
+      code that I got out of this seems like it would be common in &ldquo;real world&rdquo;
+      Haskell.</p>
+      <p>I&rsquo;ll post two sections of the code: one where I explain each of the sections, and
+      one where all the code is grouped together. If you are just interested in the end result,
+      feel free to skip the first section.</p>
+      <h2 id="explanation">Explanation</h2>
+      <p>The first section imports the different libraries and defines function
+      &ldquo;prototypes&rdquo; (I&rsquo;m not sure if that&rsquo;s what they&rsquo;re called, and
+      if any Haskellians could let me know, I&rsquo;d appreciate it.).</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-haskell" data-lang="haskell"><span style=
+        "color:#204a87;font-weight:bold">import</span> <span style=
+        "color:#000">Data.Function</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style=
+"color:#000">Data.List</span>
+
+<span style="color:#204a87;font-weight:bold">import</span> <span style=
+"color:#000">System.Environment</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style=
+"color:#000">System.IO</span>
+
+<span style="color:#000">parseEntry</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#204a87;font-weight:bold">String</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">getEntries</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#204a87;font-weight:bold">String</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#204a87;font-weight:bold">IO</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#000">sortEntries</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style=
+"color:#000;font-weight:bold">)]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#000">processEntries</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style=
+"color:#000;font-weight:bold">)]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style=
+"color:#000;font-weight:bold">)]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#204a87;font-weight:bold">IO</span> <span style="color:#204a87">()</span></code></pre>
+      </div>
+      <p>Here is the implementation of the main function:</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-haskell" data-lang="haskell"><span style="color:#000">main</span> <span style=
+        "color:#204a87;font-weight:bold">=</span> <span style=
+        "color:#204a87;font-weight:bold">do</span>
+    <span style="color:#000">args</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getArgs</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style=
+"color:#000">length</span> <span style="color:#000">args</span> <span style=
+"color:#ce5c00;font-weight:bold">&lt;</span> <span style=
+"color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">then</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#4e9a06">&#34;Usage: weather &lt;file1&gt; &lt;file2&gt;&#34;</span>
+    <span style="color:#204a87;font-weight:bold">else</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">e1</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style=
+"color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style=
+"color:#000">head</span> <span style="color:#000">args</span><span style=
+"color:#000;font-weight:bold">)</span>
+        <span style="color:#000">e2</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style=
+"color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style=
+"color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">!!</span> <span style=
+"color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style=
+"color:#000">e1</span><span style="color:#000;font-weight:bold">)</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style=
+"color:#000">e2</span><span style="color:#000;font-weight:bold">)</span></code></pre>
+      </div>
+      <p>One of the things I love about Haskell is its readability. This gets the arguments that I
+      pass to my program, determines if there are enough, then uses those names as file paths to
+      read entries (there is no error checking; that&rsquo;s something I need to learn how to do if
+      I want to do any real programming). It then sorts those entries, and then processes them.</p>
+      <p>Here are the bodies of my other functions:</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-haskell" data-lang="haskell"><span style=
+        "color:#000">parseEntry</span> <span style="color:#000">str</span> <span style=
+        "color:#204a87;font-weight:bold">=</span> <span style=
+        "color:#204a87;font-weight:bold">case</span> <span style=
+        "color:#000">words</span> <span style="color:#000">str</span> <span style=
+        "color:#204a87;font-weight:bold">of</span> <span style=
+        "color:#000;font-weight:bold">[</span><span style="color:#000">s</span><span style=
+        "color:#000;font-weight:bold">,</span><span style="color:#000">d</span><span style=
+        "color:#000;font-weight:bold">]</span> <span style=
+        "color:#204a87;font-weight:bold">-&gt;</span> <span style=
+        "color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style=
+        "color:#000;font-weight:bold">,</span> <span style="color:#000">read</span> <span style=
+        "color:#000">d</span> <span style="color:#204a87;font-weight:bold">::</span> <span style=
+        "color:#204a87;font-weight:bold">Double</span><span style=
+        "color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">getEntries</span> <span style="color:#000">fname</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
+    <span style="color:#000">contents</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">readFile</span> <span style=
+"color:#000">fname</span>
+    <span style="color:#204a87;font-weight:bold">let</span> <span style=
+"color:#000">entries</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#000">map</span> <span style="color:#000">parseEntry</span> <span style=
+"color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">tail</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">lines</span> <span style=
+"color:#000">contents</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">return</span> <span style="color:#000">entries</span>
+
+<span style="color:#000">sortEntries</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#000">sortBy</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">compare</span> <span style=
+"color:#000;font-weight:bold">`</span><span style="color:#000">on</span><span style=
+"color:#000;font-weight:bold">`</span> <span style="color:#000">fst</span><span style=
+"color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">processEntries</span> <span style=
+"color:#204a87;font-weight:bold">_</span> <span style=
+"color:#204a87;font-weight:bold">[]</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style=
+"color:#204a87">()</span>
+<span style="color:#000">processEntries</span> <span style=
+"color:#204a87;font-weight:bold">[]</span> <span style=
+"color:#204a87;font-weight:bold">_</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style=
+"color:#204a87">()</span>
+
+<span style="color:#000">processEntries</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style=
+"color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style=
+"color:#000;font-weight:bold">)</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style=
+"color:#204a87;font-weight:bold">:</span><span style="color:#000">ss</span><span style=
+"color:#000;font-weight:bold">)</span> 
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">fst</span> <span style="color:#000">f</span> <span style=
+"color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">fst</span> <span style=
+"color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#4e9a06">&#34;Missing entry in first file at &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style=
+"color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style=
+"color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style=
+"color:#000;font-weight:bold">)</span> <span style="color:#000">ss</span>
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">fst</span> <span style="color:#000">f</span> <span style=
+"color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">fst</span> <span style=
+"color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#4e9a06">&#34;Missing entry in second file at &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style=
+"color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000">fs</span> <span style="color:#000;font-weight:bold">(</span><span style=
+"color:#000">s</span><span style="color:#204a87;font-weight:bold">:</span><span style=
+"color:#000">ss</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">snd</span> <span style="color:#000">f</span> <span style=
+"color:#ce5c00;font-weight:bold">/=</span> <span style="color:#000">snd</span> <span style=
+"color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#4e9a06">&#34;Discrepancy of &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">show</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">abs</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">snd</span> <span style=
+"color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style=
+"color:#000">snd</span> <span style="color:#000">s</span><span style=
+"color:#000;font-weight:bold">))</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style=
+"color:#4e9a06">&#34; at &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style=
+"color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000">fs</span> <span style="color:#000">ss</span>
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">otherwise</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#000">processEntries</span> <span style="color:#000">fs</span> <span style=
+"color:#000">ss</span></code></pre>
+      </div>
+      <p>The first function, parseEntry, accepts a string and returns a tuple containing a String
+      and a Double. It parses the raw string and converts it into a pair that contains the date and
+      the temperature on that date. GetEntries is a helper function that accepts a filename and
+      returns a list of parsed entries. Sort entries does exactly what it says on the tin: it sorts
+      the date.</p>
+      <p>The final one, process entries, is probably the most complex function in the program. Even
+      it is simple: given two lists of (String, Double) tuples, it processes them and determines if
+      any entries are missing from either file. This is almost inherently a procedural process, and
+      my C implementation used loops to accomplish this.</p>
+      <p>Instead, I used recursion, following a pattern that I&rsquo;ve seen in a few other Haskell
+      programs: splitting the list into its first element and its tail. This way, if I realize that
+      I need to process the first element again (which happens, in this case, when a file is
+      missing an entry), I can simply join it back to the list with either <code>(f:fs)</code> or
+      <code>(s:ss)</code>. Despite my initial hesitation about implementing this process
+      recursively, I find that the new version is extremely readable.</p>
+      <p>The two patterns that I include are the base cases, which stop recursion if either of the
+      lists are completely emptied. While this could possibly cause problems if there is a missing
+      entry at the end of the file, for simplicity the assignment did not include that particular
+      edge case.</p>
+      <h2 id="full-code">Full Code</h2>
+      <p>Here&rsquo;s the entire source of my program:</p>
+      <div class="highlight">
+        <pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class=
+        "language-haskell" data-lang="haskell"><span style=
+        "color:#204a87;font-weight:bold">import</span> <span style=
+        "color:#000">Data.Function</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style=
+"color:#000">Data.List</span>
+
+<span style="color:#204a87;font-weight:bold">import</span> <span style=
+"color:#000">System.Environment</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style=
+"color:#000">System.IO</span>
+
+<span style="color:#000">parseEntry</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#204a87;font-weight:bold">String</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">getEntries</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#204a87;font-weight:bold">String</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#204a87;font-weight:bold">IO</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#000">sortEntries</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style=
+"color:#000;font-weight:bold">)]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#000">processEntries</span> <span style=
+"color:#204a87;font-weight:bold">::</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style=
+"color:#000;font-weight:bold">)]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">[(</span><span style=
+"color:#204a87;font-weight:bold">String</span><span style=
+"color:#000;font-weight:bold">,</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style=
+"color:#000;font-weight:bold">)]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#204a87;font-weight:bold">IO</span> <span style="color:#204a87">()</span>
+
+<span style="color:#000">main</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
+    <span style="color:#000">args</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">getArgs</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style=
+"color:#000">length</span> <span style="color:#000">args</span> <span style=
+"color:#ce5c00;font-weight:bold">&lt;</span> <span style=
+"color:#0000cf;font-weight:bold">2</span> <span style="color:#204a87;font-weight:bold">then</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#4e9a06">&#34;Usage: weather &lt;file1&gt; &lt;file2&gt;&#34;</span>
+    <span style="color:#204a87;font-weight:bold">else</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">e1</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style=
+"color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style=
+"color:#000">head</span> <span style="color:#000">args</span><span style=
+"color:#000;font-weight:bold">)</span>
+        <span style="color:#000">e2</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style=
+"color:#000">getEntries</span> <span style="color:#000;font-weight:bold">(</span><span style=
+"color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">!!</span> <span style=
+"color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style=
+"color:#000">e1</span><span style="color:#000;font-weight:bold">)</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">sortEntries</span> <span style=
+"color:#000">e2</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">parseEntry</span> <span style="color:#000">str</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">case</span> <span style="color:#000">words</span> <span style=
+"color:#000">str</span> <span style="color:#204a87;font-weight:bold">of</span> <span style=
+"color:#000;font-weight:bold">[</span><span style="color:#000">s</span><span style=
+"color:#000;font-weight:bold">,</span><span style="color:#000">d</span><span style=
+"color:#000;font-weight:bold">]</span> <span style=
+"color:#204a87;font-weight:bold">-&gt;</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style=
+"color:#000;font-weight:bold">,</span> <span style="color:#000">read</span> <span style=
+"color:#000">d</span> <span style="color:#204a87;font-weight:bold">::</span> <span style=
+"color:#204a87;font-weight:bold">Double</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">getEntries</span> <span style="color:#000">fname</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">do</span>
+    <span style="color:#000">contents</span> <span style=
+"color:#204a87;font-weight:bold">&lt;-</span> <span style="color:#000">readFile</span> <span style=
+"color:#000">fname</span>
+    <span style="color:#204a87;font-weight:bold">let</span> <span style=
+"color:#000">entries</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#000">map</span> <span style="color:#000">parseEntry</span> <span style=
+"color:#ce5c00;font-weight:bold">$</span> <span style="color:#000">tail</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">lines</span> <span style=
+"color:#000">contents</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">return</span> <span style="color:#000">entries</span>
+
+<span style="color:#000">sortEntries</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#000">sortBy</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">compare</span> <span style=
+"color:#000;font-weight:bold">`</span><span style="color:#000">on</span><span style=
+"color:#000;font-weight:bold">`</span> <span style="color:#000">fst</span><span style=
+"color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">processEntries</span> <span style=
+"color:#204a87;font-weight:bold">_</span> <span style=
+"color:#204a87;font-weight:bold">[]</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style=
+"color:#204a87">()</span>
+<span style="color:#000">processEntries</span> <span style=
+"color:#204a87;font-weight:bold">[]</span> <span style=
+"color:#204a87;font-weight:bold">_</span> <span style=
+"color:#204a87;font-weight:bold">=</span> <span style="color:#000">return</span> <span style=
+"color:#204a87">()</span>
+
+<span style="color:#000">processEntries</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style=
+"color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style=
+"color:#000;font-weight:bold">)</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style=
+"color:#204a87;font-weight:bold">:</span><span style="color:#000">ss</span><span style=
+"color:#000;font-weight:bold">)</span> 
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">fst</span> <span style="color:#000">f</span> <span style=
+"color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">fst</span> <span style=
+"color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#4e9a06">&#34;Missing entry in first file at &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style=
+"color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style=
+"color:#204a87;font-weight:bold">:</span><span style="color:#000">fs</span><span style=
+"color:#000;font-weight:bold">)</span> <span style="color:#000">ss</span>
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">fst</span> <span style="color:#000">f</span> <span style=
+"color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">fst</span> <span style=
+"color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#4e9a06">&#34;Missing entry in second file at &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style=
+"color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000">fs</span> <span style="color:#000;font-weight:bold">(</span><span style=
+"color:#000">s</span><span style="color:#204a87;font-weight:bold">:</span><span style=
+"color:#000">ss</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">snd</span> <span style="color:#000">f</span> <span style=
+"color:#ce5c00;font-weight:bold">/=</span> <span style="color:#000">snd</span> <span style=
+"color:#000">s</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#204a87;font-weight:bold">do</span>
+        <span style="color:#000">putStrLn</span> <span style=
+"color:#000;font-weight:bold">(</span><span style=
+"color:#4e9a06">&#34;Discrepancy of &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">show</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">abs</span> <span style=
+"color:#000;font-weight:bold">(</span><span style="color:#000">snd</span> <span style=
+"color:#000">f</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style=
+"color:#000">snd</span> <span style="color:#000">s</span><span style=
+"color:#000;font-weight:bold">))</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style=
+"color:#4e9a06">&#34; at &#34;</span> <span style=
+"color:#ce5c00;font-weight:bold">++</span> <span style="color:#000">fst</span> <span style=
+"color:#000">f</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">processEntries</span> <span style=
+"color:#000">fs</span> <span style="color:#000">ss</span>
+    <span style="color:#ce5c00;font-weight:bold">|</span> <span style=
+"color:#000">otherwise</span> <span style="color:#204a87;font-weight:bold">=</span> <span style=
+"color:#000">processEntries</span> <span style="color:#000">fs</span> <span style=
+"color:#000">ss</span></code></pre>
+      </div>
+      <p>I&rsquo;m sure that any Haskell purist would reel back in horror upon encountering this
+      code, but dammit, I worked hard on this. It&rsquo;s significantly shorter than my original C
+      implementation (which clocks in at 140 lines of code, including comments and whitespace).</p>
+      <p>Overall, I&rsquo;m impressed by Haskell&rsquo;s terseness balanced with good readability.
+      I look forward to actually finding an application for this.</p>
+    </div>
   </div>
-  <div>Proudly Powered by <a href="https://gohugo.io/">Hugo</a></div>
-</footer>
-
-    
-<script type="text/javascript"
-        src="/scroll-header.js"></script>
-
-    
-  </body>
+  <footer>
+    <div class="footer-links">
+      <span class="footer-item"><a href=
+      "mailto://walt@waltermays.com">walt@waltermays.com</a></span> <span class=
+      "footer-item"><a href="https://github.com/Sircular">Sircular</a> on Github</span>
+    </div>
+    <div>
+      Proudly Powered by <a href="https://gohugo.io/">Hugo</a>
+    </div>
+  </footer>
+  <script type="text/javascript" src="/scroll-header.js"></script>
+</body>
 </html>
