@@ -6,10 +6,21 @@
     <description>Recent content in Blog on Walter Mays</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Oct 2018 19:37:56 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 08 Dec 2018 14:14:28 -0600</lastBuildDate>
     
 	<atom:link href="http://waltermays.com/blog/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Please Stop Using Weighted Grades</title>
+      <link>http://waltermays.com/blog/2018/12/please-stop-using-weighted-grades/</link>
+      <pubDate>Sat, 08 Dec 2018 14:14:28 -0600</pubDate>
+      
+      <guid>http://waltermays.com/blog/2018/12/please-stop-using-weighted-grades/</guid>
+      <description>Please stop using them. Your students will thank you.
+Since I&amp;rsquo;ve entered college, this has been something of a pet peeve of mine. I understand why teachers do it; it&amp;rsquo;s a very useful tool for structuring how much a particular group of homework, quizzes, or tests affects grades. It&amp;rsquo;s really very predictable when you calculate grades at the end of the semester.
+But when you&amp;rsquo;re checking grades over the course of the year, weighted grades can be very frustrating for a student, because new grades added to a weighted average system can&amp;rsquo;t affect grades across assignment groups.</description>
+    </item>
     
     <item>
       <title>Switching to Hugo</title>
