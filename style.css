@@ -67,6 +67,12 @@ blockquote {
   padding-left: 10px;
   border-left: 2px solid #1252A1; }
 
+hr {
+  border: 1px solid #999;
+  width: 50%;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+
 a {
   color: #1252A1;
   text-decoration: none; }
