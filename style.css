@@ -29,6 +29,7 @@ body {
   padding-right: 30px; }
 
 #content {
+  margin-top: 1em;
   flex: 1 0 auto; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,14 +84,22 @@ a {
   color: #666; }
 
 header {
-  padding: 0.7em;
-  padding-left: 30px;
-  padding-right: 30px;
   color: #666;
-  background-color: whitesmoke; }
+  border-bottom: 1px solid #999;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+  width: 100%; }
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start; } }
   header .site-title {
     order: 0;
-    margin-bottom: 0.6em;
     text-align: center;
     font-size: 2em;
     font-family: Playfair Display, serif; }
@@ -98,17 +107,19 @@ header {
       color: #666; }
   header .nav-links {
     order: 1;
-    text-align: center; }
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em; }
     header .nav-links .nav-link {
       font-family: Playfair Display, serif;
-      font-size: 1.08em;
-      padding-left: 0.5em;
-      padding-right: 0.5em; }
+      padding-left: 0.3em;
+      padding-right: 0.3em; }
       @media screen and (max-width: 768px) {
         header .nav-links .nav-link {
           display: block;
           text-align: left;
-          padding: 0; } }
+          padding: 0;
+          font-size: 1.15em; } }
 
 footer {
   margin-top: 1em;
@@ -129,9 +140,6 @@ footer {
           border: none; } }
 
 .post {
-  border-left: 3px solid #1252A1;
-  margin-left: -23px;
-  padding-left: 20px;
   margin-bottom: 40px; }
 
 .post-info {
