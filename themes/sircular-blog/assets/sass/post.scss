@@ -1,11 +1,6 @@
-$post-line-space: 20px;
-$post-line-width: 3px;
 $post-spacing:    40px;
 
 .post {
-    border-left:   $post-line-width solid $accent-color;
-    margin-left:   -($post-line-space+$post-line-width);
-    padding-left:  $post-line-space;
     margin-bottom: $post-spacing;
 }
 

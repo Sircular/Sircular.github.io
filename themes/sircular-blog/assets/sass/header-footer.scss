@@ -1,13 +1,24 @@
 header {
-    padding:          0.7em;
-    padding-left:     30px;
-    padding-right:    30px;
-    color:            $light-text;
-    background-color: $light-background;
+    color:           $light-text;
+    border-bottom:   1px solid $light-gray;
+
+    flex: 0 0 auto;
+
+    display:         flex;
+    flex-direction:  row;
+    align-items:     center;
+    justify-content: space-between;
+    padding-top:     0.7em;
+    padding-bottom:  0.7em;
+    width:           100%;
+
+    @include media-query($on-palm) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
     .site-title {
         order:         0;
-        margin-bottom: 0.6em;
         text-align:    center;
 
         font-size:   2em;
@@ -21,16 +32,19 @@ header {
     .nav-links {
         order:      1;
         text-align: center;
+        margin-top: 1em;
+        margin-bottom: 1em;
 
         .nav-link {
             font-family:   $header-font;
-            font-size:     1.08em;
-            padding-left:  0.5em;
-            padding-right: 0.5em;
+            // font-size:     1.08em;
+            padding-left:  0.3em;
+            padding-right: 0.3em;
             @include media-query($on-palm) {
                 display:    block;
                 text-align: left;
                 padding:    0;
+                font-size: 1.15em;
             }
         }
     }
