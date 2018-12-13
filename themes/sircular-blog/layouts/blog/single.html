@@ -7,6 +7,8 @@
 {{ .Content }}
 {{ end }}
 {{ define "scripts" }}
+{{ if (gt .WordCount 750) }}
 <script type="text/javascript"
         src="{{ (resources.Get "scroll-header.js").RelPermalink }}"></script>
+{{ end }}
 {{ end }}

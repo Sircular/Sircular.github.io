@@ -14,7 +14,7 @@ $accent-color: #1252A1;
 // }}}
 
 // media query mixins {{{
-$content-width: 900px !default;
+$content-width: 38em !default;
 $on-palm:       768px !default;
 
 @mixin media-query($device) {
