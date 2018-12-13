@@ -23,7 +23,7 @@ body {
       font-size: 14pt; } }
 
 .container {
-  max-width: 900px;
+  max-width: 38em;
   margin: auto;
   padding-left: 30px;
   padding-right: 30px; }
