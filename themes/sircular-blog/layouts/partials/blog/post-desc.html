@@ -1,4 +1,4 @@
-<div class="post-info">
+<header class="post-info">
   {{ .Date.Format "January 2, 2006" }}
   {{ with .Params.Categories }}
     &bull;
@@ -8,4 +8,4 @@
     {{ end }}
     <a href="{{ "categories" | relURL }}/{{index . $last | urlize }}">{{ index . $last }}</a>
   {{ end }}
-</div>
+</header>

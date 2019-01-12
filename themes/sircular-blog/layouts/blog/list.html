@@ -1,12 +1,14 @@
 {{ define "main" }}
 {{ with .Paginator }}
 {{ range .Pages }}
-<div class="post">
-  <h2 class="post-title">
-    <a href="{{ .URL }}" class="post-link">
-      {{ .Title }}
-    </a>
-  </h2>
+<article class="post">
+  <header>
+    <h2 class="post-title">
+      <a href="{{ .URL }}" class="post-link">
+        {{ .Title }}
+      </a>
+    </h2>
+  </header>
   {{ partial "blog/post-desc" . }}
   <div class="post-content">
     {{ with .Params.note }}
@@ -15,10 +17,10 @@
     <p>{{ .Summary }}</p>
     <a href="{{ .RelPermalink }}">Read More</a>
   </div>
-</div>
+</article>
 {{ end }}
 
-<div class="pagination">
+<nav class="pagination">
   {{ if .HasNext }}
   <a href="{{ .Next.URL }}">&laquo; Older</a>
   {{ else }}
@@ -29,6 +31,6 @@
   {{ else }}
   <span class="inactive-link">Newer &raquo;</span>
   {{ end }}
-</div>
+</nav>
 {{ end }}
 {{ end }}
