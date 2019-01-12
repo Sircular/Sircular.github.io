@@ -83,7 +83,7 @@ a {
 .inactive-link {
   color: #666; }
 
-header {
+.site-header {
   color: #666;
   border-bottom: 1px solid #999;
   flex: 0 0 auto;
@@ -95,27 +95,27 @@ header {
   padding-bottom: 0.7em;
   width: 100%; }
   @media screen and (max-width: 768px) {
-    header {
+    .site-header {
       flex-direction: column;
       align-items: flex-start; } }
-  header .site-title {
+  .site-header .site-title {
     order: 0;
     text-align: center;
     font-size: 2em;
     font-family: Playfair Display, serif; }
-    header .site-title a {
+    .site-header .site-title a {
       color: #666; }
-  header .nav-links {
+  .site-header .nav-links {
     order: 1;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em; }
-    header .nav-links .nav-link {
+    .site-header .nav-links .nav-link {
       font-family: Playfair Display, serif;
       padding-left: 0.3em;
       padding-right: 0.3em; }
       @media screen and (max-width: 768px) {
-        header .nav-links .nav-link {
+        .site-header .nav-links .nav-link {
           display: block;
           text-align: left;
           padding: 0;
