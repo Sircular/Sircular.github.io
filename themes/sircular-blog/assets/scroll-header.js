@@ -1,12 +1,10 @@
 // Scrolling Header
 // Inspired by running header from Steve Losh's blog
 
-var CONTENT_WIDTH = 920;
-var HEADER_WIDTH  = 160;
-var CONTAINER_ID  = "content";
-var FADING_SPACE  = 20;
-
-var MIN_WINDOW_WIDTH = CONTENT_WIDTH+(HEADER_WIDTH*2) + 30;
+var HEADER_WIDTH       = 160;
+var HEADER_PADDING     = 0;
+var CONTAINER_SELECTOR = "#content";
+var CONTENT_SELECTOR   = ".container"
 
 // helper function because things are inconsistent
 // why is this the accepted method
@@ -36,25 +34,24 @@ function getCurrentHeader(labelElement, headers) {
   if (labelElement == null || headers == null || headers.length == 0) {
     return null;
   }
-  var aboveHeaders = headers.filter(function (h) {
-    return h.getBoundingClientRect().top < labelElement.getBoundingClientRect().top;
-  });
-  if (aboveHeaders.length > 0) {
-    return aboveHeaders[aboveHeaders.length-1];
-  } else {
-    return null;
+  // iterate backwards to find the closest one above
+  for (var i = headers.length-1; i >= 0; i--) {
+    var h = headers[i];
+    if (h.getBoundingClientRect().top < labelElement.getBoundingClientRect().top) {
+      return h;
+    }
   }
+  return null;
 }
 
 // set up all the data required
 window.addEventListener('load', function() {
-  var container    = document.getElementById(CONTAINER_ID);
+  var container    = document.querySelector(CONTAINER_SELECTOR);
+  var content      = container.querySelector(CONTENT_SELECTOR);
   var headers      = getContentHeaders(container);
   var labelElement = createLabelElement();
-  var enabled      = true;
 
   var scrollListen = function() {
-    labelElement.style.visibility = enabled ? "visible" : "hidden";
     var header = getCurrentHeader(labelElement, headers);
     if (header == null) {
       labelElement.style.opacity = 0;
@@ -66,11 +63,14 @@ window.addEventListener('load', function() {
   window.addEventListener('scroll', scrollListen);
 
   var resizeListen = function() {
-    var dims = getWindowDimensions();
+    var windowWidth = getWindowDimensions().width;
+    var contentWidth = content.clientWidth;
+
+    var minWindowWidth = contentWidth + (HEADER_WIDTH+HEADER_PADDING)*2;
 
     // position the running header
-    labelElement.style.right = (dims.width+CONTENT_WIDTH)/2 + "px";
-    enabled                  = (dims.width >= MIN_WINDOW_WIDTH);
+    labelElement.style.right      = (windowWidth + contentWidth)/2 + HEADER_PADDING + "px";
+    labelElement.style.visibility = (windowWidth >= minWindowWidth) ? "visible" : "hidden";
     scrollListen();
   };
   window.addEventListener('resize', resizeListen);
