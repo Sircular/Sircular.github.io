@@ -6,6 +6,6 @@
 <ul>
   {{ range $posts }} 
   {{ $page := $.Page.GetPage ( printf "/blog/%s.md" . ) }}
-  <li><a href="{{ $page.URL }}">{{ substr $page.Title 36 }}</a></li>
+  <li><a href="{{ $page.RelPermalink }}">{{ substr $page.Title 36 }}</a></li>
   {{ end }}
 </ul>

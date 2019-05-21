@@ -3,7 +3,7 @@
 {{ .Content }}
 {{ range .Pages }}
 <h3>
-  <a href="{{ .URL }}">
+  <a href="{{ .RelPermalink }}">
     {{ .Title }}
   </a>
 </h3>
@@ -12,7 +12,7 @@
 <hr/>
 {{ range . }}
 <h3>
-  <a href="{{ .URL }}">
+  <a href="{{ .RelPermalink }}">
     {{ .Title }}
   </a>
 </h3>
