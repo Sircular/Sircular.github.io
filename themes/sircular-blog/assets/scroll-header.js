@@ -1,7 +1,8 @@
 // Scrolling Header
 // Inspired by running header from Steve Losh's blog
 
-var CONTENT_WIDTH = 920;
+// Conversion to ems, plus a padding
+var CONTENT_WIDTH = 17 * 40 + 50;
 var HEADER_WIDTH  = 160;
 var CONTAINER_ID  = "content";
 var FADING_SPACE  = 20;

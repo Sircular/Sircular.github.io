@@ -8,6 +8,7 @@
     flex-direction:  row;
     align-items:     center;
     justify-content: space-between;
+    padding: 0px;
     padding-top:     0.7em;
     padding-bottom:  0.7em;
     width:           100%;
@@ -37,7 +38,7 @@
 
         .nav-link {
             font-family:   $header-font;
-            // font-size:     1.08em;
+            font-size:     1.08em;
             padding-left:  0.3em;
             padding-right: 0.3em;
             @include media-query($on-palm) {
