@@ -27,6 +27,12 @@
         a {
             color: $light-text;
         }
+
+        @include media-query($on-palm) {
+            border-bottom: 1px solid $light-gray;
+            margin-bottom: -10px;
+            padding-bottom: 10px;
+        }
     }
 
     .nav-links {
@@ -37,14 +43,14 @@
 
         .nav-link {
             font-family:   $header-font;
-            // font-size:     1.08em;
+            font-size:     1.08em;
             padding-left:  0.3em;
             padding-right: 0.3em;
             @include media-query($on-palm) {
                 display:    block;
                 text-align: left;
                 padding:    0;
-                font-size: 1.15em;
+                font-size: 1.3em;
             }
         }
     }

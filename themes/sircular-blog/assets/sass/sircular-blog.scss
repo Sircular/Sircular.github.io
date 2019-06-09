@@ -1,20 +1,20 @@
 // config variables {{{
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Inconsolata|Playfair+Display');
-$body-font:   Crimson Text, serif;
-$header-font: Playfair Display, serif;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway:600|Inconsolata');
+$body-font:   Source Sans Pro, sans-serif;
+$header-font: Raleway, serif;
 
 $text-color:       #111;
-$light-text:       #666;
-$light-gray:       #999;
+$light-text:       #454545;
+$light-gray:       #bbb;
 $light-background: whitesmoke;
-$font-size:        16pt;
+$font-size:        14pt;
 $mobile-font-size: 14pt;
 
 $accent-color: #1252A1;
 // }}}
 
 // media query mixins {{{
-$content-width: 38em !default;
+$content-width: 50em !default;
 $on-palm:       768px !default;
 
 @mixin media-query($device) {

@@ -43,17 +43,26 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0px;
 }
 
-h1 { font-size: 1.6em; }
-h2 { font-size: 1.375em; }
-h3 { font-size: 1.15em; }
-h4 { font-size: 1.0em; }
-h5 { font-size: 0.775em; }
-h6 { font-size: 0.7em; }
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.375em; }
+h4 { font-size: 1.15em; }
+h5 { font-size: 1.0em; }
+h6 { font-size: 1.0em; }
 
 p {
-    margin-top:    0.5em;
-    margin-bottom: 1em;
+    margin-top:      0.5em;
+    margin-bottom:   1em;
+    hyphens:         auto;
+    -ms-hyphens:     auto;
+    -webkit-hyphens: auto;
+
+    text-align:    justify;
+    @include media-query($on-palm) {
+        text-align: left;
+    }
 }
+
 
 blockquote {
     font-style:    italic;
@@ -66,9 +75,9 @@ blockquote {
 }
 
 hr {
-    border: 1px solid $light-gray;
-    width: 50%;
-    margin-top: 25px;
+    border:        1px solid $light-gray;
+    width:         50%;
+    margin-top:    25px;
     margin-bottom: 25px;
 }
 
