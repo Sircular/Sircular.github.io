@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Inconsolata|Playfair+Display");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway:600|Inconsolata");
 * {
   box-sizing: border-box; }
 
@@ -15,15 +15,15 @@ body {
   flex-direction: column;
   justify-content: space-between;
   color: #111;
-  font-family: Crimson Text, serif;
-  font-size: 16pt;
+  font-family: Source Sans Pro, sans-serif;
+  font-size: 14pt;
   line-height: 1.2; }
   @media screen and (max-width: 768px) {
     body {
       font-size: 14pt; } }
 
 .container {
-  max-width: 38em;
+  max-width: 50em;
   margin: auto;
   padding-left: 30px;
   padding-right: 30px; }
@@ -33,35 +33,42 @@ body {
   flex: 1 0 auto; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Playfair Display, serif;
+  font-family: Raleway, serif;
   font-weight: normal;
   margin-bottom: 0px; }
 
 h1 {
-  font-size: 1.6em; }
+  font-size: 1.8em; }
 
 h2 {
-  font-size: 1.375em; }
+  font-size: 1.6em; }
 
 h3 {
-  font-size: 1.15em; }
+  font-size: 1.375em; }
 
 h4 {
-  font-size: 1.0em; }
+  font-size: 1.15em; }
 
 h5 {
-  font-size: 0.775em; }
+  font-size: 1.0em; }
 
 h6 {
-  font-size: 0.7em; }
+  font-size: 1.0em; }
 
 p {
   margin-top: 0.5em;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  text-align: justify; }
+  @media screen and (max-width: 768px) {
+    p {
+      text-align: left; } }
 
 blockquote {
   font-style: italic;
-  color: #666;
+  color: #454545;
   margin-left: 10px;
   margin-right: 10px;
   padding-right: 10px;
@@ -69,7 +76,7 @@ blockquote {
   border-left: 2px solid #1252A1; }
 
 hr {
-  border: 1px solid #999;
+  border: 1px solid #bbb;
   width: 50%;
   margin-top: 25px;
   margin-bottom: 25px; }
@@ -81,11 +88,11 @@ a {
     text-decoration: underline; }
 
 .inactive-link {
-  color: #666; }
+  color: #454545; }
 
 .site-header {
-  color: #666;
-  border-bottom: 1px solid #999;
+  color: #454545;
+  border-bottom: 1px solid #bbb;
   flex: 0 0 auto;
   display: flex;
   flex-direction: row;
@@ -102,16 +109,22 @@ a {
     order: 0;
     text-align: center;
     font-size: 2em;
-    font-family: Playfair Display, serif; }
+    font-family: Raleway, serif; }
     .site-header .site-title a {
-      color: #666; }
+      color: #454545; }
+    @media screen and (max-width: 768px) {
+      .site-header .site-title {
+        border-bottom: 1px solid #bbb;
+        margin-bottom: -10px;
+        padding-bottom: 10px; } }
   .site-header .nav-links {
     order: 1;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em; }
     .site-header .nav-links .nav-link {
-      font-family: Playfair Display, serif;
+      font-family: Raleway, serif;
+      font-size: 1.08em;
       padding-left: 0.3em;
       padding-right: 0.3em; }
       @media screen and (max-width: 768px) {
@@ -119,7 +132,7 @@ a {
           display: block;
           text-align: left;
           padding: 0;
-          font-size: 1.15em; } }
+          font-size: 1.3em; } }
 
 footer {
   margin-top: 1em;
@@ -131,7 +144,7 @@ footer {
     padding-left: 1em;
     padding-right: 1em; }
     footer .footer-item:not(:last-child) {
-      border-right: 1px solid #666; }
+      border-right: 1px solid #454545; }
     @media screen and (max-width: 768px) {
       footer .footer-item {
         display: block;
@@ -144,7 +157,7 @@ footer {
 
 .post-info {
   margin-top: 0.2em;
-  color: #666; }
+  color: #454545; }
 
 .post-link {
   color: #111; }
@@ -165,8 +178,8 @@ footer {
   position: fixed;
   top: 1em;
   font-size: 1.1em;
-  font-family: Playfair Display, serif;
-  color: #666;
+  font-family: Raleway, serif;
+  color: #454545;
   text-align: right;
   font-style: italic; }
 
