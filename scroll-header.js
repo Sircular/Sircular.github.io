@@ -1,10 +1,13 @@
 // Scrolling Header
 // Inspired by running header from Steve Losh's blog
 
-var HEADER_WIDTH       = 160;
-var HEADER_PADDING     = 0;
-var CONTAINER_SELECTOR = "#content";
-var CONTENT_SELECTOR   = ".container"
+// Conversion to ems, plus a padding
+var CONTENT_WIDTH = 17 * 40 + 50;
+var HEADER_WIDTH  = 160;
+var CONTAINER_ID  = "content";
+var FADING_SPACE  = 20;
+
+var MIN_WINDOW_WIDTH = CONTENT_WIDTH+(HEADER_WIDTH*2) + 30;
 
 // helper function because things are inconsistent
 // why is this the accepted method

@@ -17,7 +17,7 @@ body {
   color: #111;
   font-family: Source Sans Pro, sans-serif;
   font-size: 14pt;
-  line-height: 1.2; }
+  font-weight: light; }
   @media screen and (max-width: 768px) {
     body {
       font-size: 14pt; } }
@@ -34,7 +34,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Raleway, serif;
-  font-weight: normal;
+  font-weight: bold;
   margin-bottom: 0px; }
 
 h1 {
@@ -73,7 +73,7 @@ blockquote {
   margin-right: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  border-left: 2px solid #1252A1; }
+  border-left: 2px solid #4A84B5; }
 
 hr {
   border: 1px solid #bbb;
@@ -82,7 +82,7 @@ hr {
   margin-bottom: 25px; }
 
 a {
-  color: #1252A1;
+  color: #4A84B5;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
