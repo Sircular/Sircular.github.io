@@ -4,7 +4,7 @@
 {{ with .Sections }}
 {{ range .}}
 <h3>
-  <a href="{{ .URL }}">
+  <a href="{{ .RelPermalink }}">
     {{ .Title }}
   </a>
 </h3>
@@ -13,7 +13,7 @@
 {{ end }}
 {{ range .Pages }}
 <h3>
-  <a href="{{ .URL }}">
+  <a href="{{ .RelPermalink }}">
     {{ .Title }}
   </a>
 </h3>

@@ -8,7 +8,7 @@
   {{ range $name, $pages := .Data.Terms }}
     {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
     <li>
-      <a href="{{ .URL }}">{{ .Title }}</a>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </li>
     {{ end }}
   {{ end }}

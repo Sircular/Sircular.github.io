@@ -3,7 +3,7 @@
   <nav class="nav-links">
     {{ $currentPage := . }}
     {{ range .Site.Menus.main.ByWeight }}
-    {{ if eq $currentPage.URL .URL }}
+    {{ if eq $currentPage.RelPermalink .URL }}
     <span class="nav-link inactive-link">{{ .Name }}</span>
     {{ else }}
     <a href="{{ .URL }}" class="nav-link">{{ .Pre }}{{ .Name }}</a>

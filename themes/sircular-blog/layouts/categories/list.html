@@ -4,7 +4,7 @@
   {{ range .Pages }}
   <div class="post">
     <h3 class="post-title">
-      <a href="{{ .URL }}" class="post-link">{{ .Title }}</a>
+      <a href="{{ .RelPermalink }}" class="post-link">{{ .Title }}</a>
     </h3>
     {{ partial "blog/post-desc" . }}
   </div>
