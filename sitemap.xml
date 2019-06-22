@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://waltermays.com/blog/2019/06/why-is-crosscheck-so-bad-bayesian-statistics/</loc>
+    <lastmod>2019-06-22T16:20:17-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://waltermays.com/blog/2019/01/creative-writing/</loc>
     <lastmod>2019-01-05T22:00:38-06:00</lastmod>
   </url>
@@ -119,7 +124,7 @@
   
   <url>
     <loc>http://waltermays.com/blog/</loc>
-    <lastmod>2019-01-05T22:00:38-06:00</lastmod>
+    <lastmod>2019-06-22T16:20:17-05:00</lastmod>
   </url>
   
   <url>
@@ -141,7 +146,7 @@
   
   <url>
     <loc>http://waltermays.com/</loc>
-    <lastmod>2019-01-05T22:00:38-06:00</lastmod>
+    <lastmod>2019-06-22T16:20:17-05:00</lastmod>
   </url>
   
   <url>
@@ -161,6 +166,12 @@
   </url>
   
   <url>
+    <loc>http://waltermays.com/categories/politics/</loc>
+    <lastmod>2019-06-22T16:20:17-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://waltermays.com/categories/programming/</loc>
     <lastmod>2018-10-22T19:37:56-05:00</lastmod>
     <priority>0</priority>
@@ -168,7 +179,7 @@
   
   <url>
     <loc>http://waltermays.com/categories/random/</loc>
-    <lastmod>2018-05-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-22T16:20:17-05:00</lastmod>
     <priority>0</priority>
   </url>
   

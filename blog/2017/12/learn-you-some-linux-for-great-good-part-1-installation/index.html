@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" href="/favicon.ico"><!-- Begin SEO -->
-  <meta property="og:title" content="Learn You Some Linux For Great Good Part 1: Installation">
-  <meta name="description" content=
-  "This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series. Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax So, you&rsquo;ve decided to forge ahead. In this part we will discuss some important jargon to know, look at some distributions (and discuss how to tell them apart), create installation media, and install Linux.">
-  <link rel="canonical" href=
-  "http://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/">
-  <meta property="og:url" content=
-  "http://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/">
-  <meta property="og:site_name" content="Walter Mays">
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-12-10 00:00:00 &#43;0000 UTC">
-  <script type="application/ld+json">
+  <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+  <link rel="icon" href="/favicon.ico"/>
+  
+  <!-- Begin SEO -->
+<meta property="og:title" content="Learn You Some Linux For Great Good Part 1: Installation"/>
+<meta name="description" content="This is one of several posts in my &#34;Learn You Some Linux For Great Good&#34; series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  So, you&rsquo;ve decided to forge ahead. In this part we will discuss some important jargon to know, look at some distributions (and discuss how to tell them apart), create installation media, and install Linux."/>
+<link rel="canonical" href="http://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/"/>
+<meta property="og:url" content="http://waltermays.com/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/"/>
+<meta property="og:site_name" content="Walter Mays"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-12-10 00:00:00 &#43;0000 UTC"/>
+<script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "mainEntityOfPage": {
@@ -28,228 +28,180 @@
     "datePublished": "2017-12-10 00:00:00 &#43;0000 UTC",
     "description": "This is one of several posts in my "Learn You Some Linux For Great Good" series.  Part 0: A Word of Caution Part 1: Installation Part 2: Getting Comfortable Part 3: Command Line Syntax  So, you&rsquo;ve decided to forge ahead. In this part we will discuss some important jargon to know, look at some distributions (and discuss how to tell them apart), create installation media, and install Linux."
   }
-  </script><!-- End SEO -->
-  <title>Learn You Some Linux For Great Good Part 1: Installation | Walter Mays</title>
-  <link rel="stylesheet" href="/style.css">
+</script>
+<!-- End SEO -->
+
+  <title>
+    Learn You Some Linux For Great Good Part 1: Installation | Walter Mays
+    
+  </title>
+  
+  <link rel="stylesheet" href="/style.css" />
 </head>
-<body>
-  <header class="container site-header">
-    <div class="site-title">
-      <a href="/">Walter Mays</a>
+
+  <body>
+    <header class="container site-header">
+  <div class="site-title"><a href="/">Walter Mays</a></div>
+  <nav class="nav-links">
+    
+    
+    
+    <a href="/" class="nav-link">Home</a>
+    
+    
+    
+    <a href="/learn-you-some-linux/" class="nav-link">Learn You Some Linux</a>
+    
+    
+    
+    <a href="/blog/" class="nav-link">Blog</a>
+    
+    
+  </nav>
+</header>
+
+    <div id="content">
+      <div class="container">
+        
+<h1 class="post-title">Learn You Some Linux For Great Good Part 1: Installation</h1>
+<header class="post-info">
+  December 10, 2017
+  
+    &bull;
+    
+    
+    <a href="/categories/linux">Linux</a>
+  
+</header>
+
+
+
+
+
+<em>This is one of several posts in my "Learn You Some Linux For Great Good"
+  series.</em>
+
+
+<ul>
+   
+  
+  <li><a href="/blog/2017/12/learn-you-some-linux-for-great-good-part-0-a-word-of-caution/">Part 0: A Word of Caution</a></li>
+   
+  
+  <li><a href="/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/">Part 1: Installation</a></li>
+   
+  
+  <li><a href="/blog/2018/03/learn-you-some-linux-for-great-good-part-2-getting-comfortable/">Part 2: Getting Comfortable</a></li>
+   
+  
+  <li><a href="/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/">Part 3: Command Line Syntax</a></li>
+  
+</ul>
+
+
+<p>So, you&rsquo;ve decided to forge ahead. In this part we will discuss some important jargon to know, look at some distributions (and discuss how to tell them apart), create installation media, and install Linux. <strong>WARNING:</strong> Do <em>not</em> do this without backing up your data first.</p>
+
+<h2 id="a-note-on-terminology">A Note on Terminology</h2>
+
+<p>When people refer to &ldquo;Linux,&rdquo; they generally mean an entire operating system, including lots of programs and graphical user interfaces. Technically, Linux is only the <em>kernel</em> of the operating system, which is in charge of communicating between programs and the hardware, allocating memory, scheduling different processes, and lots of other stuff. Most of the basic command-line utilities are part of the GNU project (which stands for GNU&rsquo;s not Unix), and all other programs are maintained by several different authors. There are several different <em>desktop environments</em> (which is a fancy term for the desktop, common programs, and things like notifications and the start menu), each of which have their own benefits and drawbacks.</p>
+
+<h2 id="choosing-a-distribution">Choosing a Distribution</h2>
+
+<p>Collections of the Linux kernel, these programs, and (sometimes) desktop environments are called <em>distributions.</em> Each distribution is suited to its own particular task. Some are optimized for user interaction on a desktop; some are optimized for server use; still others are intended to be booted from external media. You can use any distribution for any purpose, but just know that there may be a better one out there for what you&rsquo;re trying to do.</p>
+
+<p>Distributions of Linux generally ship with a program called a <em>package manager</em>, which does exactly what it says: it manages software packages. These download and install programs from central <em>repositories</em> maintained by the maintainers of the distribution. This is one of the selling points of Linux: not only are all of the programs in one place and easy to find, but they have been vetted by the maintainers of the distribution, unlike all of those emoticon addons, <em>mom.</em></p>
+
+<p>Here are some of the most common Linux distributions, organized by installation difficulty:</p>
+
+<h3 id="simpler-installation">Simpler Installation</h3>
+
+<ul>
+<li><a href="https://www.debian.org/">Debian</a>: The oldest distribution still in use. Rock solid, but slow to update. Very popular for servers.
+
+<ul>
+<li><a href="https://www.kali.org/">Kali Linux</a>: A Debian derivative focused on penetration testing.</li>
+<li><a href="https://www.ubuntu.com/">Ubuntu</a>: A Debian derivative that maintains its own set of packages, and which moves a little faster than Debian. Generally used for desktops.</li>
+<li><a href="https://linuxmint.com/">Linux Mint</a>: A Debian derivative focused on ease of use. Good for beginners wanting to try Linux on their desktop.</li>
+</ul></li>
+<li><a href="https://getfedora.org/">Fedora</a>: The development distribution by Red Hat. Generally stable, and a little more focused on security.</li>
+<li><a href="https://www.debian.org/">OpenSUSE</a>: A distribution similar to Debian, but used more on desktops than servers.</li>
+</ul>
+
+<h3 id="more-complex-installation">More Complex Installation</h3>
+
+<ul>
+<li><a href="https://www.archlinux.org/">Arch Linux</a>: A <em>rolling release</em> distribution that is constantly updating all of its packages. Can be extremely minimal or comprehensive. Relatively unstable. Generally favored by power users. (Also the most difficult to install.) <strong>Not</strong> recommended for beginners, as it has no graphical installer.</li>
+<li><a href="http://www.slackware.com/">Slackware</a>: An odd duck that does not use a package manager. <sup>2</sup>&frasl;<sub>10</sub> would not recommend.</li>
+</ul>
+
+<p>Picking a distribution should best be left up to you. I&rsquo;ve had the most experience with Debian and Ubuntu (which is what I&rsquo;m currently using, although Fedora has been catching my eye recently), but the basics of most Linux distributions are the same.</p>
+
+<h2 id="creating-installation-media">Creating Installation Media</h2>
+
+<p>Once you&rsquo;ve chosen a distribution, you need to create installation media. The distribution website will offer downloads in the form of ISO image files. These files represent (in compressed form) the entire file system of the base distribution, which includes all of the programs and configuration required. You then need to transfer these ISOs to physical media. This generally takes the form of a burned disk or a flash drive. For creating a CD or DVD, most burners should be able to create your media; look for an option that involves creating a data disk with a *.iso file. If you want to go the USB route (which I recommend), <a href="https://unetbootin.github.io/">UnetBootin</a> is a popular system for creating bootable USB drives.</p>
+
+<h2 id="partitioning">Partitioning</h2>
+
+<p>If you want to boot Linux directly from the media you create, you can skip this section. However, if you want to install Linux alongside Windows, then you&rsquo;ll have to make space for it on your computer.</p>
+
+<p>Data disks are divided up into <em>partitions</em>, which separate one file system from another. This allows you to have multiple file systems on a single disk and install multiple operating systems onto that disk. Furthermore, Linux installers often separate different parts of the installation by placing different sections on different partitions (for example, system files on one file system and documents on another).</p>
+
+<p>To make space on your disk to install Linux alongside Windows, open up the built-in Disk Management utility by typing &ldquo;diskmgmt&rdquo; into your search bar (you&rsquo;ll need to have Administrator access to modify partitions on your disk). Once it opens, find the main Windows partition, which should be the largest one, and shrink it. Make sure to leave enough space to still use your Windows partition; Linux can be installed on a small partition, so as long as you have at least around 30 gigabytes allocated for Linux, you should be good. However, I recommend allocating more, since you may want to install lots of large programs (especially if you intend to game on Linux).</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><strong>WARNING:</strong> Please, <em>please</em> do <em>not</em> run this step without backing up your data, unless you&rsquo;re on a computer you don&rsquo;t care about too much.</p>
+
+<p>Once you&rsquo;ve created your installation media, insert the installation media and restart your computer. If you&rsquo;re on a Windows machine, you&rsquo;ll see a screen when you boot up that says something along the lines of &ldquo;Press F2 to open the boot menu.&rdquo; The key may vary, but the message should be similar. Then navigate to a section that should be along the lines of &ldquo;boot menu&rdquo; and select your installation media (either your CD/DVD or USB drive).</p>
+
+<p>Once you get to this point, the interface will vary based on the distribution that you chose. Most installers that I&rsquo;ve used generally have at least two menu options: <em>Try Without Installing</em> and <em>Install [Distro Name]</em>. If you&rsquo;d like to try to familiarize yourself with the interface before proceeding with the installation, choose <em>Try Without Installing.</em> It will take a while to load up, but you will get the full user experience of using Linux. Go ahead and poke around; this guide will wait. For those of you that just <em>know</em> that Linux is the path for you, read on.</p>
+
+<p>Once installation begins, most of the options should be self-explanatory. The installer will guide you through choosing your timezone, choosing your keyboard map, and setting up accounts. However, partitioning your disk is a little more complex.</p>
+
+<h3 id="setting-up-partitions">Setting Up Partitions</h3>
+
+<p>There are two types of partitions: <em>primary</em> and <em>logical</em> partitions. Primary partitions are the original partitioning format, and only four of them are allowed per disk. Logical partitions implement partitions in another layer of software; you can create several logical partitions inside one primary partition. I would generally recommend creating several logical partitions to hold your Linux installation.</p>
+
+<p>When you get to the partitioning screen, you should be presented with at least two options: 1. Wipe Disk And Install, or 2. Partition Manually. Some installers will include a third option: Install Alongside Windows. If you&rsquo;re feeling intimidated and just want to get Linux installed, choose Install Alongside Windows. If that option isn&rsquo;t offered, or you want more fine-grained control, select Partition Manually.</p>
+
+<p>Partitioning manually can be daunting, so I&rsquo;ll just espouse the virtues of my favorite setup. It allows you to change distributions without losing your files (even though you should still back them up before switching distributions), and also allocates <em>swap space</em>, which your computer can use to &ldquo;swap&rdquo; out memory when you use too much. If you have an SSD, make a partition for your system files on the SSD and two logical partitions for your other files and swap space on your hard disk; if you are sharing them both across the same disk, create a several logical partitions, one each for system files, user files, and swap space.</p>
+
+<p>The installer will guide you through choosing file system types and <em>mount points</em>. A mount point tells Linux where the documents on the partition should be located, e.g. the <code>/home</code> directory, the <code>/</code> directory, and so on. Create one partition for your system files (either on an SSD if you have it or your hard disk) and choose to format it as &ldquo;ext4&rdquo; (which is a file system that is very fast and good at recovering from expected shutdowns). Allocate as much space as you want for this, but make sure it&rsquo;s less than half of the space you&rsquo;ve allocated for your entire installation. Set this partition&rsquo;s mount point to <code>/</code>. Create another partition, also ext4, and mount it at <code>/home</code>. If you want to use Secure Boot (and you likely are), examine the partitions that already exist on your drive and look for one that has an &ldquo;EFI&rdquo; file system. If there is one, select it and set its mount point to <code>/boot/efi</code>. If there isn&rsquo;t such a partition, create a primary partition, format it as an EFI partition, and mount it there. Finally, create another partition (10GB is the largest this one should be) and create a &ldquo;swap&rdquo; file system. Set this mount point to &ldquo;swap space.&rdquo;</p>
+
+<p>Once you&rsquo;ve verified that you&rsquo;ve done all that, <em>double check <strong>everything</strong></em>, and then continue with the installation.</p>
+
+<h2 id="finishing-the-installation">Finishing the Installation</h2>
+
+<p>After this, your installer may download updates. This could take a long time (up to an hour or two, depending on the kind of installer that you chose). The final step in the installation is to set up the <em>boot loader,</em> which tells your computer where to load the operating system. The most common boot loader that handles both Windows and Linux is GRUB, which your installer will install automatically.</p>
+
+<p>After you finish installation, reboot to ensure that everything went according to plan. You should see the GRUB boot menu show up, containing entries for your new Linux installation and your Windows installation.</p>
+
+
+      </div>
     </div>
-    <nav class="nav-links">
-      <a href="/" class="nav-link">Home</a> <a href="/learn-you-some-linux/" class="nav-link">Learn
-      You Some Linux</a> <a href="/blog/" class="nav-link">Blog</a>
-    </nav>
-  </header>
-  <div id="content">
-    <div class="container">
-      <h1 class="post-title">Learn You Some Linux For Great Good Part 1: Installation</h1>
-      <header class="post-info">
-        December 10, 2017 &bull; <a href="/categories/linux">Linux</a>
-      </header><em>This is one of several posts in my "Learn You Some Linux For Great Good"
-      series.</em>
-      <ul>
-        <li>
-          <a href=
-          "/blog/2017/12/learn-you-some-linux-for-great-good-part-0-a-word-of-caution/">Part 0: A
-          Word of Caution</a>
-        </li>
-        <li>
-          <a href="/blog/2017/12/learn-you-some-linux-for-great-good-part-1-installation/">Part 1:
-          Installation</a>
-        </li>
-        <li>
-          <a href=
-          "/blog/2018/03/learn-you-some-linux-for-great-good-part-2-getting-comfortable/">Part 2:
-          Getting Comfortable</a>
-        </li>
-        <li>
-          <a href=
-          "/blog/2018/03/learn-you-some-linux-for-great-good-part-3-command-line-syntax/">Part 3:
-          Command Line Syntax</a>
-        </li>
-      </ul>
-      <p>So, you&rsquo;ve decided to forge ahead. In this part we will discuss some important
-      jargon to know, look at some distributions (and discuss how to tell them apart), create
-      installation media, and install Linux. <strong>WARNING:</strong> Do <em>not</em> do this
-      without backing up your data first.</p>
-      <h2 id="a-note-on-terminology">A Note on Terminology</h2>
-      <p>When people refer to &ldquo;Linux,&rdquo; they generally mean an entire operating system,
-      including lots of programs and graphical user interfaces. Technically, Linux is only the
-      <em>kernel</em> of the operating system, which is in charge of communicating between programs
-      and the hardware, allocating memory, scheduling different processes, and lots of other stuff.
-      Most of the basic command-line utilities are part of the GNU project (which stands for
-      GNU&rsquo;s not Unix), and all other programs are maintained by several different authors.
-      There are several different <em>desktop environments</em> (which is a fancy term for the
-      desktop, common programs, and things like notifications and the start menu), each of which
-      have their own benefits and drawbacks.</p>
-      <h2 id="choosing-a-distribution">Choosing a Distribution</h2>
-      <p>Collections of the Linux kernel, these programs, and (sometimes) desktop environments are
-      called <em>distributions.</em> Each distribution is suited to its own particular task. Some
-      are optimized for user interaction on a desktop; some are optimized for server use; still
-      others are intended to be booted from external media. You can use any distribution for any
-      purpose, but just know that there may be a better one out there for what you&rsquo;re trying
-      to do.</p>
-      <p>Distributions of Linux generally ship with a program called a <em>package manager</em>,
-      which does exactly what it says: it manages software packages. These download and install
-      programs from central <em>repositories</em> maintained by the maintainers of the
-      distribution. This is one of the selling points of Linux: not only are all of the programs in
-      one place and easy to find, but they have been vetted by the maintainers of the distribution,
-      unlike all of those emoticon addons, <em>mom.</em></p>
-      <p>Here are some of the most common Linux distributions, organized by installation
-      difficulty:</p>
-      <h3 id="simpler-installation">Simpler Installation</h3>
-      <ul>
-        <li>
-          <a href="https://www.debian.org/">Debian</a>: The oldest distribution still in use. Rock
-          solid, but slow to update. Very popular for servers.
-          <ul>
-            <li>
-              <a href="https://www.kali.org/">Kali Linux</a>: A Debian derivative focused on
-              penetration testing.
-            </li>
-            <li>
-              <a href="https://www.ubuntu.com/">Ubuntu</a>: A Debian derivative that maintains its
-              own set of packages, and which moves a little faster than Debian. Generally used for
-              desktops.
-            </li>
-            <li>
-              <a href="https://linuxmint.com/">Linux Mint</a>: A Debian derivative focused on ease
-              of use. Good for beginners wanting to try Linux on their desktop.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://getfedora.org/">Fedora</a>: The development distribution by Red Hat.
-          Generally stable, and a little more focused on security.
-        </li>
-        <li>
-          <a href="https://www.debian.org/">OpenSUSE</a>: A distribution similar to Debian, but
-          used more on desktops than servers.
-        </li>
-      </ul>
-      <h3 id="more-complex-installation">More Complex Installation</h3>
-      <ul>
-        <li>
-          <a href="https://www.archlinux.org/">Arch Linux</a>: A <em>rolling release</em>
-          distribution that is constantly updating all of its packages. Can be extremely minimal or
-          comprehensive. Relatively unstable. Generally favored by power users. (Also the most
-          difficult to install.) <strong>Not</strong> recommended for beginners, as it has no
-          graphical installer.
-        </li>
-        <li>
-          <a href="http://www.slackware.com/">Slackware</a>: An odd duck that does not use a
-          package manager. <sup>2</sup>&frasl;<sub>10</sub> would not recommend.
-        </li>
-      </ul>
-      <p>Picking a distribution should best be left up to you. I&rsquo;ve had the most experience
-      with Debian and Ubuntu (which is what I&rsquo;m currently using, although Fedora has been
-      catching my eye recently), but the basics of most Linux distributions are the same.</p>
-      <h2 id="creating-installation-media">Creating Installation Media</h2>
-      <p>Once you&rsquo;ve chosen a distribution, you need to create installation media. The
-      distribution website will offer downloads in the form of ISO image files. These files
-      represent (in compressed form) the entire file system of the base distribution, which
-      includes all of the programs and configuration required. You then need to transfer these ISOs
-      to physical media. This generally takes the form of a burned disk or a flash drive. For
-      creating a CD or DVD, most burners should be able to create your media; look for an option
-      that involves creating a data disk with a *.iso file. If you want to go the USB route (which
-      I recommend), <a href="https://unetbootin.github.io/">UnetBootin</a> is a popular system for
-      creating bootable USB drives.</p>
-      <h2 id="partitioning">Partitioning</h2>
-      <p>If you want to boot Linux directly from the media you create, you can skip this section.
-      However, if you want to install Linux alongside Windows, then you&rsquo;ll have to make space
-      for it on your computer.</p>
-      <p>Data disks are divided up into <em>partitions</em>, which separate one file system from
-      another. This allows you to have multiple file systems on a single disk and install multiple
-      operating systems onto that disk. Furthermore, Linux installers often separate different
-      parts of the installation by placing different sections on different partitions (for example,
-      system files on one file system and documents on another).</p>
-      <p>To make space on your disk to install Linux alongside Windows, open up the built-in Disk
-      Management utility by typing &ldquo;diskmgmt&rdquo; into your search bar (you&rsquo;ll need
-      to have Administrator access to modify partitions on your disk). Once it opens, find the main
-      Windows partition, which should be the largest one, and shrink it. Make sure to leave enough
-      space to still use your Windows partition; Linux can be installed on a small partition, so as
-      long as you have at least around 30 gigabytes allocated for Linux, you should be good.
-      However, I recommend allocating more, since you may want to install lots of large programs
-      (especially if you intend to game on Linux).</p>
-      <h2 id="installation">Installation</h2>
-      <p><strong>WARNING:</strong> Please, <em>please</em> do <em>not</em> run this step without
-      backing up your data, unless you&rsquo;re on a computer you don&rsquo;t care about too
-      much.</p>
-      <p>Once you&rsquo;ve created your installation media, insert the installation media and
-      restart your computer. If you&rsquo;re on a Windows machine, you&rsquo;ll see a screen when
-      you boot up that says something along the lines of &ldquo;Press F2 to open the boot
-      menu.&rdquo; The key may vary, but the message should be similar. Then navigate to a section
-      that should be along the lines of &ldquo;boot menu&rdquo; and select your installation media
-      (either your CD/DVD or USB drive).</p>
-      <p>Once you get to this point, the interface will vary based on the distribution that you
-      chose. Most installers that I&rsquo;ve used generally have at least two menu options: <em>Try
-      Without Installing</em> and <em>Install [Distro Name]</em>. If you&rsquo;d like to try to
-      familiarize yourself with the interface before proceeding with the installation, choose
-      <em>Try Without Installing.</em> It will take a while to load up, but you will get the full
-      user experience of using Linux. Go ahead and poke around; this guide will wait. For those of
-      you that just <em>know</em> that Linux is the path for you, read on.</p>
-      <p>Once installation begins, most of the options should be self-explanatory. The installer
-      will guide you through choosing your timezone, choosing your keyboard map, and setting up
-      accounts. However, partitioning your disk is a little more complex.</p>
-      <h3 id="setting-up-partitions">Setting Up Partitions</h3>
-      <p>There are two types of partitions: <em>primary</em> and <em>logical</em> partitions.
-      Primary partitions are the original partitioning format, and only four of them are allowed
-      per disk. Logical partitions implement partitions in another layer of software; you can
-      create several logical partitions inside one primary partition. I would generally recommend
-      creating several logical partitions to hold your Linux installation.</p>
-      <p>When you get to the partitioning screen, you should be presented with at least two
-      options: 1. Wipe Disk And Install, or 2. Partition Manually. Some installers will include a
-      third option: Install Alongside Windows. If you&rsquo;re feeling intimidated and just want to
-      get Linux installed, choose Install Alongside Windows. If that option isn&rsquo;t offered, or
-      you want more fine-grained control, select Partition Manually.</p>
-      <p>Partitioning manually can be daunting, so I&rsquo;ll just espouse the virtues of my
-      favorite setup. It allows you to change distributions without losing your files (even though
-      you should still back them up before switching distributions), and also allocates <em>swap
-      space</em>, which your computer can use to &ldquo;swap&rdquo; out memory when you use too
-      much. If you have an SSD, make a partition for your system files on the SSD and two logical
-      partitions for your other files and swap space on your hard disk; if you are sharing them
-      both across the same disk, create a several logical partitions, one each for system files,
-      user files, and swap space.</p>
-      <p>The installer will guide you through choosing file system types and <em>mount points</em>.
-      A mount point tells Linux where the documents on the partition should be located, e.g. the
-      <code>/home</code> directory, the <code>/</code> directory, and so on. Create one partition
-      for your system files (either on an SSD if you have it or your hard disk) and choose to
-      format it as &ldquo;ext4&rdquo; (which is a file system that is very fast and good at
-      recovering from expected shutdowns). Allocate as much space as you want for this, but make
-      sure it&rsquo;s less than half of the space you&rsquo;ve allocated for your entire
-      installation. Set this partition&rsquo;s mount point to <code>/</code>. Create another
-      partition, also ext4, and mount it at <code>/home</code>. If you want to use Secure Boot (and
-      you likely are), examine the partitions that already exist on your drive and look for one
-      that has an &ldquo;EFI&rdquo; file system. If there is one, select it and set its mount point
-      to <code>/boot/efi</code>. If there isn&rsquo;t such a partition, create a primary partition,
-      format it as an EFI partition, and mount it there. Finally, create another partition (10GB is
-      the largest this one should be) and create a &ldquo;swap&rdquo; file system. Set this mount
-      point to &ldquo;swap space.&rdquo;</p>
-      <p>Once you&rsquo;ve verified that you&rsquo;ve done all that, <em>double check
-      <strong>everything</strong></em>, and then continue with the installation.</p>
-      <h2 id="finishing-the-installation">Finishing the Installation</h2>
-      <p>After this, your installer may download updates. This could take a long time (up to an
-      hour or two, depending on the kind of installer that you chose). The final step in the
-      installation is to set up the <em>boot loader,</em> which tells your computer where to load
-      the operating system. The most common boot loader that handles both Windows and Linux is
-      GRUB, which your installer will install automatically.</p>
-      <p>After you finish installation, reboot to ensure that everything went according to plan.
-      You should see the GRUB boot menu show up, containing entries for your new Linux installation
-      and your Windows installation.</p>
-    </div>
+    <footer>
+  <div class="footer-links">
+    
+    <span class="footer-item">
+      <a href="mailto://walt@waltermays.com">walt@waltermays.com</a>
+    </span>
+    
+    
+    <span class="footer-item">
+      <a href="https://github.com/Sircular">
+        Sircular</a> on Github
+    </span>
+    
   </div>
-  <footer>
-    <div class="footer-links">
-      <span class="footer-item"><a href=
-      "mailto://walt@waltermays.com">walt@waltermays.com</a></span> <span class=
-      "footer-item"><a href="https://github.com/Sircular">Sircular</a> on Github</span>
-    </div>
-    <div>
-      Proudly Powered by <a href="https://gohugo.io/">Hugo</a>
-    </div>
-  </footer>
-  <script type="text/javascript" src="/scroll-header.js"></script>
-</body>
+  <div>Proudly Powered by <a href="https://gohugo.io/">Hugo</a></div>
+</footer>
+
+    
+
+<script type="text/javascript"
+        src="/scroll-header.js"></script>
+
+
+    
+  </body>
 </html>
