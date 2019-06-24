@@ -73,7 +73,7 @@ Even with extremely effective false-positive and false-negative rates, a greater
 number of legitimate votes is marked as fraudulent.  The numbers are close to
 equal, but this still shows that even with quite high rates of voter fraud, a
 system like Crosscheck needs to be extremely reliable to be effective at all.
-In practice?  [This study] suggests that for every fraudulent vote prevented,
+In practice?  [This study][5] suggests that for every fraudulent vote prevented,
 approximately 300 legitimate votes are rejected.
 
 That doesn't sound like democracy to me.
