@@ -1,11 +1,15 @@
-$post-spacing:    40px;
+$post-spacing:    1em;
 
 .post {
     margin-bottom: $post-spacing;
 }
 
+.posts {
+    margin-top: 1.5em;
+}
+
 .post-info {
-    margin-top: 0.2em;
+    margin-bottom: 1em;
     color:      $light-text;
 }
 
